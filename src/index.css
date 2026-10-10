@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@layer theme {
+  :root {
+    --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* Light Mode Tokens */
+    --color-brand-primary: #6a0c06;
+    --color-brand-cream: #b2c7ab;
+    --color-brand-dark: #1a1512;
+    --color-brand-accent: #6a0c06;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-brand-cream: #6a0c06;
+  --color-brand-light: #6a0c06;
+  --color-brand-primary: #b2c7ab;
+  --color-brand-accent: #b2c7ab;
+  color-scheme: dark;
+}
+
+html {
+  background-color: var(--color-brand-cream);
+  color-scheme: light;
+  scroll-behavior: auto;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--color-brand-primary) var(--color-brand-cream);
+}
+
+:root[data-theme="dark"] html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-brand-cream);
+  color: var(--color-brand-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  background: var(--color-brand-primary);
+  color: var(--color-brand-cream);
+}
+
+/* Custom Utilities matching Mijobello classes */
+.bg-brand-cream {
+  background-color: var(--color-brand-cream);
+}
+
+.bg-brand-primary {
+  background-color: var(--color-brand-primary);
+}
+
+.bg-brand-dark {
+  background-color: var(--color-brand-dark);
+}
+
+.text-brand-cream {
+  color: var(--color-brand-cream);
+}
+
+.text-brand-primary {
+  color: var(--color-brand-primary);
+}
+
+.border-brand-primary {
+  border-color: var(--color-brand-primary);
+}
+
+.border-brand-cream {
+  border-color: var(--color-brand-cream);
+}
+
+.border-brand-primary\/50 {
+  border-color: color-mix(in srgb, var(--color-brand-primary) 50%, transparent);
+}
+
+.border-brand-primary\/25 {
+  border-color: color-mix(in srgb, var(--color-brand-primary) 25%, transparent);
+}
+
+.border-brand-cream\/50 {
+  border-color: color-mix(in srgb, var(--color-brand-cream) 50%, transparent);
+}
+
+.border-brand-cream\/40 {
+  border-color: color-mix(in srgb, var(--color-brand-cream) 40%, transparent);
+}
+
+.bg-brand-primary\/20 {
+  background-color: color-mix(in srgb, var(--color-brand-primary) 20%, transparent);
+}
+
+.bg-brand-primary\/10 {
+  background-color: color-mix(in srgb, var(--color-brand-primary) 10%, transparent);
+}
+
+.bg-brand-primary\/5 {
+  background-color: color-mix(in srgb, var(--color-brand-primary) 5%, transparent);
+}
+
+/* Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee-view-all {
+  animation: marquee 42s linear infinite;
+}
+
+@keyframes vinyl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-vinyl {
+  animation: vinyl 16s linear infinite;
+}
+
+/* 3D Preserves */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}

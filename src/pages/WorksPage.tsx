@@ -1,0 +1,403 @@
+import React, { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChatCtaSection } from '../components/ChatCtaSection';
+import { RollText } from '../components/RollText';
+import { PORTFOLIO_DATA, Project } from '../data/portfolioData';
+
+export const WorksPage: React.FC = () => {
+  const { projects } = PORTFOLIO_DATA;
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
+
+  const categories = useMemo(() => {
+    const cats = new Set(projects.map((p) => p.category));
+    return ['All', ...Array.from(cats)];
+  }, [projects]);
+
+  const featuredProject = projects[0];
+
+  const filteredProjects = useMemo(() => {
+    return projects.filter((p) => {
+      const matchesCategory =
+        selectedCategory === 'All' || p.category === selectedCategory;
+      const matchesSearch =
+        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+      return matchesCategory && matchesSearch;
+    });
+  }, [projects, selectedCategory, searchQuery]);
+
+  return (
+    <div className="pt-14 md:pt-16">
+      {/* SECTION 1: HERO WITH SPINNING VINYL DISC */}
+      <section className="border-b border-brand-primary/50 text-brand-primary">
+        <div className="grid grid-cols-4 md:grid-cols-12">
+          {/* Main Title Col */}
+          <div className="relative z-10 col-span-4 flex flex-col justify-end px-3 py-8 md:col-span-8 md:px-4 md:py-16">
+            <h1 className="text-[clamp(3.5rem,22vw,17rem)] leading-[0.8] font-bold tracking-[-0.13em]">
+              works.
+            </h1>
+          </div>
+
+          {/* Right Col: Vinyl Record Disk */}
+          <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50">
+            <div className="relative aspect-square max-h-[66svh] w-full overflow-hidden bg-brand-dark flex items-center justify-center p-8">
+              <div className="aspect-square h-[75%] relative">
+                <svg
+                  viewBox="0 0 200 200"
+                  className="animate-vinyl h-full w-full"
+                  role="img"
+                  aria-label="Engineered by Ryan Genturo"
+                >
+                  <defs>
+                    <path
+                      id="vinyl-path"
+                      fill="none"
+                      d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0"
+                    />
+                  </defs>
+                  {/* Vinyl Outer Rim */}
+                  <circle cx="100" cy="100" r="100" fill="var(--color-brand-cream)" />
+                  {/* Grooves */}
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="96"
+                    fill="none"
+                    stroke="var(--color-brand-primary)"
+                    strokeOpacity="0.22"
+                    strokeWidth="0.8"
+                  />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="92"
+                    fill="none"
+                    stroke="var(--color-brand-primary)"
+                    strokeOpacity="0.22"
+                    strokeWidth="0.8"
+                  />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="88"
+                    fill="none"
+                    stroke="var(--color-brand-primary)"
+                    strokeOpacity="0.22"
+                    strokeWidth="0.8"
+                  />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="62"
+                    fill="none"
+                    stroke="var(--color-brand-primary)"
+                    strokeOpacity="0.22"
+                    strokeWidth="0.8"
+                  />
+                  {/* Center Label */}
+                  <circle cx="100" cy="100" r="42" fill="var(--color-brand-primary)" />
+                  <circle cx="100" cy="100" r="8" fill="var(--color-brand-cream)" />
+                  {/* Circular Text */}
+                  <text
+                    fontSize="9.5"
+                    fontWeight="700"
+                    letterSpacing="0.18em"
+                    fill="var(--color-brand-cream)"
+                  >
+                    <textPath href="#vinyl-path">
+                      • RYAN GENTURO • COMPUTER ENGINEERING • SYSTEMS •
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: FEATURED PROJECT */}
+      <section className="text-brand-primary border-b border-brand-primary/50">
+        <div className="grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40">
+            <div className="grid grid-cols-4 md:grid-cols-10">
+              <div className="col-span-4 md:col-span-10 p-3 md:p-4">
+                <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                  featured.
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Featured Showcase Card */}
+        <div className="grid grid-cols-4 md:grid-cols-12">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50">
+            <div className="grid grid-cols-4 md:grid-cols-10">
+              {/* Media Col */}
+              <div className="col-span-4 aspect-[4/3] border-b md:col-span-5 md:aspect-auto md:min-h-[40rem] md:border-b-0 md:border-r border-brand-primary/50 bg-brand-dark overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setActiveModalProject(featuredProject)}
+                  className="block h-full w-full cursor-pointer group text-left"
+                >
+                  <img
+                    src={featuredProject.image}
+                    alt={featuredProject.title}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                </button>
+              </div>
+
+              {/* Text Info Col */}
+              <div className="col-span-4 md:col-span-5 p-4 md:p-8 flex flex-col justify-center gap-5 md:gap-6">
+                <div>
+                  <p className="text-[0.65rem] tracking-[0.18em] uppercase opacity-70 mb-2">
+                    {featuredProject.category} · {featuredProject.year}
+                  </p>
+                  <h3 className="text-3xl font-semibold tracking-[-0.03em] md:text-5xl mb-4">
+                    {featuredProject.title}
+                  </h3>
+                  <p className="text-base md:text-lg leading-relaxed opacity-90 mb-6">
+                    {featuredProject.description}
+                  </p>
+                </div>
+
+                {/* Tags */}
+                <ul className="flex flex-wrap gap-2">
+                  {featuredProject.tags.map((t) => (
+                    <li
+                      key={t}
+                      className="border border-brand-primary/50 px-3 py-1 text-[0.65rem] tracking-[0.18em] uppercase font-mono"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Action button */}
+                <button
+                  type="button"
+                  onClick={() => setActiveModalProject(featuredProject)}
+                  className="group group/roll mt-4 inline-flex items-center gap-2 self-start text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase cursor-pointer"
+                >
+                  <RollText text="view architecture" />
+                  <span aria-hidden="true" className="transition-transform group-hover/roll:translate-x-1">
+                    &gt;
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: THE REST (GALLERY & FILTERS) */}
+      <section className="text-brand-primary">
+        <div className="grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40">
+            <div className="grid grid-cols-4 md:grid-cols-10">
+              <div className="col-span-4 md:col-span-10 p-3 md:p-4">
+                <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                  the rest.
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Filter Controls Row */}
+        <div className="grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50">
+            <div className="grid grid-cols-4 md:grid-cols-10">
+              {/* Search input */}
+              <label className="col-span-4 md:col-span-3 border-r border-brand-primary/50 p-3 md:p-4 flex cursor-text items-center gap-3 transition-colors focus-within:bg-brand-primary focus-within:text-brand-cream border-b md:border-b-0">
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="h-4 w-4 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                >
+                  <circle cx="10.5" cy="10.5" r="6.5" />
+                  <path d="M20 20 15.2 15.2" />
+                </svg>
+                <input
+                  type="search"
+                  placeholder="Search works"
+                  aria-label="Search works"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-transparent text-[0.65rem] tracking-[0.18em] uppercase placeholder:text-current placeholder:opacity-70 focus:outline-none"
+                />
+              </label>
+
+              {/* Category pills */}
+              <div className="col-span-4 md:col-span-7 p-3 md:p-4 flex flex-wrap items-center gap-2">
+                {categories.map((cat) => {
+                  const isActive = selectedCategory === cat;
+                  return (
+                    <button
+                      key={cat}
+                      type="button"
+                      onClick={() => setSelectedCategory(cat)}
+                      aria-pressed={isActive}
+                      className={`p-3 md:p-4 py-1.5 text-[0.65rem] tracking-[0.18em] uppercase border border-brand-primary/50 transition-colors cursor-pointer ${
+                        isActive
+                          ? 'bg-brand-primary text-brand-cream'
+                          : 'hover:bg-brand-primary hover:text-brand-cream'
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Project Cards Grid */}
+        <div className="grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50">
+            <div className="grid grid-cols-4 md:grid-cols-10">
+              {filteredProjects.map((project, index) => {
+                // 2 columns or 3 columns in the 10-col grid (col-span-5 on md)
+                const isRightCol = index % 2 === 1;
+                return (
+                  <div
+                    key={project.id}
+                    onClick={() => setActiveModalProject(project)}
+                    className={`group/item col-span-4 md:col-span-5 flex flex-col border-b border-brand-primary/50 cursor-pointer ${
+                      !isRightCol ? 'md:border-r' : ''
+                    }`}
+                  >
+                    {/* Image */}
+                    <div className="relative w-full grow overflow-hidden aspect-3/4 bg-brand-dark">
+                      <img
+                        alt={project.title}
+                        src={project.image}
+                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/item:scale-[1.05]"
+                      />
+                      <div className="absolute inset-0 bg-brand-primary/10 mix-blend-multiply pointer-events-none" />
+                    </div>
+
+                    {/* Card Meta */}
+                    <div className="p-3 md:p-4 mt-auto border-t border-brand-primary/50 flex flex-col gap-1">
+                      <h3 className="text-base font-semibold tracking-[-0.02em] md:text-xl">
+                        {project.title}
+                      </h3>
+                      <p className="text-[0.65rem] tracking-[0.18em] uppercase opacity-70">
+                        {project.category} · {project.year}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {filteredProjects.length === 0 && (
+                <div className="col-span-4 md:col-span-10 p-12 text-center">
+                  <p className="text-base opacity-75 font-mono">
+                    No engineering projects match the current search query or category filter.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: WANT TO CHAT? */}
+      <ChatCtaSection />
+
+      {/* PROJECT DETAIL MODAL */}
+      <AnimatePresence>
+        {activeModalProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActiveModalProject(null)}
+              className="fixed inset-0 bg-brand-primary/40 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              className="relative z-10 w-full max-w-3xl bg-brand-cream border border-brand-primary/50 text-brand-primary overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+            >
+              <div className="flex items-center justify-between border-b border-brand-primary/50 p-4">
+                <span className="font-mono text-xs uppercase tracking-[0.18em] opacity-70">
+                  {activeModalProject.category} · {activeModalProject.year}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setActiveModalProject(null)}
+                  className="p-1 px-3 border border-brand-primary/50 text-xs font-mono uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors cursor-pointer"
+                >
+                  Close [×]
+                </button>
+              </div>
+
+              <div className="p-6 md:p-8 overflow-y-auto flex flex-col gap-6">
+                <div className="aspect-video w-full overflow-hidden bg-brand-dark border border-brand-primary/30">
+                  <img
+                    src={activeModalProject.image}
+                    alt={activeModalProject.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-3xl font-bold tracking-[-0.04em] mb-2">
+                    {activeModalProject.title}
+                  </h3>
+                  <p className="font-mono text-xs uppercase tracking-wider opacity-70 mb-4">
+                    {activeModalProject.type}
+                  </p>
+                  <p className="text-base leading-relaxed opacity-90 mb-6">
+                    {activeModalProject.longDescription || activeModalProject.description}
+                  </p>
+                </div>
+
+                <div className="border-t border-brand-primary/30 pt-4">
+                  <p className="font-mono text-xs uppercase tracking-[0.18em] opacity-70 mb-2">
+                    Technologies
+                  </p>
+                  <ul className="flex flex-wrap gap-2">
+                    {activeModalProject.tags.map((t) => (
+                      <li
+                        key={t}
+                        className="border border-brand-primary/50 px-2.5 py-1 text-xs font-mono uppercase"
+                      >
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {activeModalProject.githubUrl && (
+                  <div className="pt-4 flex gap-4">
+                    <a
+                      href={activeModalProject.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block border border-brand-primary/50 px-4 py-2 font-mono text-xs uppercase tracking-wider hover:bg-brand-primary hover:text-brand-cream transition-colors"
+                    >
+                      View Repository ↗
+                    </a>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
