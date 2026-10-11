@@ -9,7 +9,7 @@ interface SelectedWorksCarouselProps {
 }
 
 export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
-  sideImage = '/assets/works-portrait-cutout.webp',
+  sideImage = '/assets/image4.png',
 }) => {
   const projects = PORTFOLIO_DATA.projects.filter((p) => p.featured);
   const [activeIndex, setActiveIndex] = useState(0);

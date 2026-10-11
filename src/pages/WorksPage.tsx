@@ -41,79 +41,14 @@ export const WorksPage: React.FC = () => {
             </h1>
           </div>
 
-          {/* Right Col: Vinyl Record Disk */}
-          <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50">
-            <div className="relative aspect-square max-h-[66svh] w-full overflow-hidden bg-brand-dark flex items-center justify-center p-8">
-              <div className="aspect-square h-[75%] relative">
-                <svg
-                  viewBox="0 0 200 200"
-                  className="animate-vinyl h-full w-full"
-                  role="img"
-                  aria-label="Engineered by Ryan Genturo"
-                >
-                  <defs>
-                    <path
-                      id="vinyl-path"
-                      fill="none"
-                      d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0"
-                    />
-                  </defs>
-                  {/* Vinyl Outer Rim */}
-                  <circle cx="100" cy="100" r="100" fill="var(--color-brand-cream)" />
-                  {/* Grooves */}
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="96"
-                    fill="none"
-                    stroke="var(--color-brand-primary)"
-                    strokeOpacity="0.22"
-                    strokeWidth="0.8"
-                  />
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="92"
-                    fill="none"
-                    stroke="var(--color-brand-primary)"
-                    strokeOpacity="0.22"
-                    strokeWidth="0.8"
-                  />
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="88"
-                    fill="none"
-                    stroke="var(--color-brand-primary)"
-                    strokeOpacity="0.22"
-                    strokeWidth="0.8"
-                  />
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="62"
-                    fill="none"
-                    stroke="var(--color-brand-primary)"
-                    strokeOpacity="0.22"
-                    strokeWidth="0.8"
-                  />
-                  {/* Center Label */}
-                  <circle cx="100" cy="100" r="42" fill="var(--color-brand-primary)" />
-                  <circle cx="100" cy="100" r="8" fill="var(--color-brand-cream)" />
-                  {/* Circular Text */}
-                  <text
-                    fontSize="9.5"
-                    fontWeight="700"
-                    letterSpacing="0.18em"
-                    fill="var(--color-brand-cream)"
-                  >
-                    <textPath href="#vinyl-path">
-                      • RYAN GENTURO • COMPUTER ENGINEERING • SYSTEMS •
-                    </textPath>
-                  </text>
-                </svg>
-              </div>
-            </div>
+          {/* Right Media Col */}
+          <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50 bg-brand-dark min-h-[300px] md:min-h-0 overflow-hidden">
+            <img
+              src="/assets/works-portrait-cutout.webp"
+              alt="Ryan Lloyd Genturo - Selected Works"
+              className="h-full w-full object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-brand-primary/10 mix-blend-multiply pointer-events-none" />
           </div>
         </div>
       </section>

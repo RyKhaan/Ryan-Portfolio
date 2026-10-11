@@ -171,7 +171,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* SECTION 3: SELECTED WORKS CAROUSEL */}
-      <SelectedWorksCarousel sideImage="/assets/works-portrait-cutout.webp" />
+      <SelectedWorksCarousel sideImage="/assets/image4.png" />
 
       {/* SECTION 4: SERVICES */}
       <ServicesSection />

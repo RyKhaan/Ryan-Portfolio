@@ -114,7 +114,7 @@ export const AboutPage: React.FC = () => {
                 <img
                   alt="Ryan Lloyd Genturo - Educational Background"
                   src="/assets/about-background.webp"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-brand-primary/15 mix-blend-multiply pointer-events-none" />
               </div>
