@@ -16,7 +16,7 @@ export const ChatCtaSection: React.FC<ChatCtaProps> = ({
   bodyText = "Have an interesting engineering problem, software project, or research opportunity? Let's connect.",
   ctaText = 'contact me',
   ctaLink = '/contact',
-  image = '/assets/DSCF0746_converted-1.webp',
+  image = '/assets/want-to-chat.webp',
 }) => {
   return (
     <section className="text-brand-primary">

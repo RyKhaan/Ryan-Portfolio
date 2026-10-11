@@ -171,13 +171,13 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* SECTION 3: SELECTED WORKS CAROUSEL */}
-      <SelectedWorksCarousel sideImage="/assets/image4.png" />
+      <SelectedWorksCarousel sideImage="/assets/works-portrait-cutout.webp" />
 
       {/* SECTION 4: SERVICES */}
       <ServicesSection />
 
       {/* SECTION 5: WANT TO CHAT? */}
-      <ChatCtaSection image="/assets/image2.png" />
+      <ChatCtaSection image="/assets/want-to-chat.webp" />
     </div>
   );
 };

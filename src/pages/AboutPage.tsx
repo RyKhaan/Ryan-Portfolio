@@ -24,7 +24,7 @@ export const AboutPage: React.FC = () => {
           {/* Right Media Col */}
           <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50 bg-brand-dark min-h-[300px] md:min-h-0 overflow-hidden">
             <img
-              src="/assets/DSCF0725_converted-1.webp"
+              src="/assets/about-hero.webp"
               alt="Ryan Lloyd Genturo"
               className="h-full w-full object-cover"
             />
@@ -112,8 +112,8 @@ export const AboutPage: React.FC = () => {
             <figure className="flex min-h-0 flex-1 flex-col pt-6">
               <div className="relative aspect-4/5 w-full overflow-hidden border border-brand-primary/50 md:aspect-auto md:min-h-0 md:flex-1 bg-brand-dark">
                 <img
-                  alt="Ryan at Workbench"
-                  src="/assets/Still-2024-12-23-190730_1.25.1.png"
+                  alt="Ryan Lloyd Genturo - Educational Background"
+                  src="/assets/about-background.webp"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-brand-primary/15 mix-blend-multiply pointer-events-none" />

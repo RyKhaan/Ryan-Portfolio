@@ -61,7 +61,7 @@ export const PORTFOLIO_DATA = {
     fullBio: [
       "I am a Computer Engineering student at the College of Engineering and Digital Technology, ICCT Colleges Foundation Inc., driven by understanding computing systems from physical silicon and microcontrollers up to modern full-stack application architectures.",
       "Outside of coursework and technical projects, I value downtime to reset and gain perspective—enjoying solo dates, exploring quiet spots and new places, and listening to music to refresh my thoughts. These simple routines give me clarity and focus when diving back into complex problems.",
-      "As a student developer, I am continuously learning and expanding my practical skills. I enjoy collaborating on academic projects—contributing to relational database schemas and shopping cart workflows in Palengke.com, supporting system design and team coordination in Synced N, and experimenting with breadboarding, Arduino Uno logic, and ESP32 sensor integration for medical and telemetry prototypes. Every project is an opportunity to learn, iterate, and grow."
+      "As a student developer, I am continuously learning and expanding my practical skills. I enjoy collaborating on academic projects, exploring database management and system design, and experimenting with hardware components, microcontrollers, and sensor integration. Each project gives me an opportunity to apply what I have learned, solve problems, work with others, and continue growing as a developer."
     ],
     contact: {
       email: "ryanlloydgenturo@gmail.com",
@@ -171,8 +171,8 @@ export const PORTFOLIO_DATA = {
       title: "software development & web",
       description: "Full-stack web applications, Object-Oriented platforms, RESTful APIs, and responsive user interfaces engineered for reliability, scalability, and user-centered utility.",
       skills: ["full stack web", "react & typescript", "oop architecture", "tailwind css", "vite & node.js", "rest apis"],
-      media: "/assets/__Laptop_Scene_02.mp4",
-      isVideo: true
+      media: "/assets/service-software-web.webp",
+      isVideo: false
     },
     {
       id: "mobile-cloud",
@@ -180,7 +180,7 @@ export const PORTFOLIO_DATA = {
       title: "mobile & cloud systems",
       description: "Native Android application development, cloud database architecture, real-time messaging, and agile engineering leadership across full product lifecycles.",
       skills: ["kotlin & android studio", "cloud firestore", "firebase auth", "fcm push notifications", "agile / scrum leadership", "figma ui/ux"],
-      media: "/assets/synced-n-mobile-mockup.webp",
+      media: "/assets/service-mobile-cloud.webp",
       isVideo: false
     },
     {

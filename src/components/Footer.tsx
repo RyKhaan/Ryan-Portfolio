@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
       <div className="relative h-36 overflow-hidden border-b md:h-52 border-brand-cream/40">
         <video
           className="h-full w-full object-cover opacity-85"
-          src="/assets/shibuya-crossing.mp4"
+          src="/assets/walking_through_japanese_village.mp4"
           muted
           loop
           autoPlay

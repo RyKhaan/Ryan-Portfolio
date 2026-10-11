@@ -40,7 +40,7 @@ export const ContactPage: React.FC = () => {
           </div>
           <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50 bg-brand-dark min-h-[260px] md:min-h-0 overflow-hidden">
             <img
-              src="/assets/DSCF0746_converted-1.webp"
+              src="/assets/contact-hero.webp"
               alt="Ryan Lloyd Genturo"
               className="h-full w-full object-cover"
             />
