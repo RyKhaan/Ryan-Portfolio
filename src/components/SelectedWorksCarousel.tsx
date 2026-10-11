@@ -177,7 +177,7 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
               <div
                 className="absolute inset-0"
                 style={{
-                  transform: 'scale(1.8)',
+                  transform: sideImage.includes('Transparent_') ? 'scale(1.8)' : undefined,
                   transformOrigin: 'right bottom',
                 }}
               >
