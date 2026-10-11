@@ -142,13 +142,13 @@ export const HomePage: React.FC = () => {
                       // SYSTEM METRICS & ARCHITECTURE
                     </p>
                     <p className="text-sm text-brand-primary pt-3">
-                      Target: RV32I / Cortex-M4 / Linux 6.x POSIX
+                      Target: ESP32 / Arduino / Android / Web
                     </p>
                     <p className="text-xs text-brand-primary/80 pt-1">
-                      Domains: C++20, Rust, SystemVerilog, Raw Sockets, LoRaWAN
+                      Domains: Kotlin, TypeScript, Embedded C/C++, FreeRTOS, ToF Sensors
                     </p>
                     <p className="text-xs text-brand-primary/70 pt-1">
-                      Status: Active Academic & Systems Development
+                      Status: Active Computer Engineering & Systems Development
                     </p>
                   </div>
                 </div>

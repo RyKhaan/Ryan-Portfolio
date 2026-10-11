@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChatCtaSection } from '../components/ChatCtaSection';
 import { RollText } from '../components/RollText';
+import { ArchitectureModal } from '../components/ArchitectureModal';
 import { PORTFOLIO_DATA, Project } from '../data/portfolioData';
 
 export const WorksPage: React.FC = () => {
@@ -137,17 +137,19 @@ export const WorksPage: React.FC = () => {
           <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50">
             <div className="grid grid-cols-4 md:grid-cols-10">
               {/* Media Col */}
-              <div className="col-span-4 aspect-[4/3] border-b md:col-span-5 md:aspect-auto md:min-h-[40rem] md:border-b-0 md:border-r border-brand-primary/50 bg-brand-dark overflow-hidden">
+              <div className="col-span-4 aspect-[4/3] border-b md:col-span-5 md:aspect-auto md:min-h-[40rem] md:border-b-0 md:border-r border-brand-primary/50 bg-brand-dark overflow-hidden flex items-center justify-center relative">
                 <button
                   type="button"
                   onClick={() => setActiveModalProject(featuredProject)}
-                  className="block h-full w-full cursor-pointer group text-left"
+                  className="block h-full w-full cursor-pointer group text-left relative"
+                  aria-label={`View architecture for ${featuredProject.title}`}
                 >
                   <img
                     src={featuredProject.image}
                     alt={featuredProject.title}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    className="h-full w-full object-contain p-4 md:p-8 transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
+                  <div className="absolute inset-0 bg-brand-primary/10 mix-blend-multiply pointer-events-none" />
                 </button>
               </div>
 
@@ -277,20 +279,32 @@ export const WorksPage: React.FC = () => {
                     }`}
                   >
                     {/* Image */}
-                    <div className="relative w-full grow overflow-hidden aspect-3/4 bg-brand-dark">
+                    <div className="relative w-full grow overflow-hidden aspect-[16/10] bg-brand-dark flex items-center justify-center">
                       <img
                         alt={project.title}
                         src={project.image}
-                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/item:scale-[1.05]"
+                        className={`h-full w-full ${
+                          project.id === 'synced-n' ? 'object-contain p-3.5' : 'object-cover'
+                        } transition-transform duration-700 ease-out group-hover/item:scale-[1.04]`}
                       />
                       <div className="absolute inset-0 bg-brand-primary/10 mix-blend-multiply pointer-events-none" />
+                      {project.isConceptualVisual && (
+                        <div className="absolute bottom-2.5 left-2.5 z-10 border border-brand-cream/40 bg-brand-primary/85 backdrop-blur-xs px-2 py-0.5 font-mono text-[0.58rem] uppercase tracking-wider text-brand-cream">
+                          Representative Concept Mockup
+                        </div>
+                      )}
                     </div>
 
                     {/* Card Meta */}
-                    <div className="p-3 md:p-4 mt-auto border-t border-brand-primary/50 flex flex-col gap-1">
-                      <h3 className="text-base font-semibold tracking-[-0.02em] md:text-xl">
-                        {project.title}
-                      </h3>
+                    <div className="p-3 md:p-4 mt-auto border-t border-brand-primary/50 flex flex-col gap-1.5">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-base font-semibold tracking-[-0.02em] md:text-xl">
+                          {project.title}
+                        </h3>
+                        <span className="font-mono text-xs opacity-60 group-hover/item:translate-x-1 transition-transform">
+                          &gt;
+                        </span>
+                      </div>
                       <p className="text-[0.65rem] tracking-[0.18em] uppercase opacity-70">
                         {project.category} · {project.year}
                       </p>
@@ -314,90 +328,11 @@ export const WorksPage: React.FC = () => {
       {/* SECTION 4: WANT TO CHAT? */}
       <ChatCtaSection />
 
-      {/* PROJECT DETAIL MODAL */}
-      <AnimatePresence>
-        {activeModalProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setActiveModalProject(null)}
-              className="fixed inset-0 bg-brand-primary/40 backdrop-blur-sm"
-            />
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              className="relative z-10 w-full max-w-3xl bg-brand-cream border border-brand-primary/50 text-brand-primary overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
-            >
-              <div className="flex items-center justify-between border-b border-brand-primary/50 p-4">
-                <span className="font-mono text-xs uppercase tracking-[0.18em] opacity-70">
-                  {activeModalProject.category} · {activeModalProject.year}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setActiveModalProject(null)}
-                  className="p-1 px-3 border border-brand-primary/50 text-xs font-mono uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors cursor-pointer"
-                >
-                  Close [×]
-                </button>
-              </div>
-
-              <div className="p-6 md:p-8 overflow-y-auto flex flex-col gap-6">
-                <div className="aspect-video w-full overflow-hidden bg-brand-dark border border-brand-primary/30">
-                  <img
-                    src={activeModalProject.image}
-                    alt={activeModalProject.title}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-
-                <div>
-                  <h3 className="text-3xl font-bold tracking-[-0.04em] mb-2">
-                    {activeModalProject.title}
-                  </h3>
-                  <p className="font-mono text-xs uppercase tracking-wider opacity-70 mb-4">
-                    {activeModalProject.type}
-                  </p>
-                  <p className="text-base leading-relaxed opacity-90 mb-6">
-                    {activeModalProject.longDescription || activeModalProject.description}
-                  </p>
-                </div>
-
-                <div className="border-t border-brand-primary/30 pt-4">
-                  <p className="font-mono text-xs uppercase tracking-[0.18em] opacity-70 mb-2">
-                    Technologies
-                  </p>
-                  <ul className="flex flex-wrap gap-2">
-                    {activeModalProject.tags.map((t) => (
-                      <li
-                        key={t}
-                        className="border border-brand-primary/50 px-2.5 py-1 text-xs font-mono uppercase"
-                      >
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {activeModalProject.githubUrl && (
-                  <div className="pt-4 flex gap-4">
-                    <a
-                      href={activeModalProject.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block border border-brand-primary/50 px-4 py-2 font-mono text-xs uppercase tracking-wider hover:bg-brand-primary hover:text-brand-cream transition-colors"
-                    >
-                      View Repository ↗
-                    </a>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      {/* ENHANCED ARCHITECTURE & SUBSYSTEMS MODAL */}
+      <ArchitectureModal
+        project={activeModalProject}
+        onClose={() => setActiveModalProject(null)}
+      />
     </div>
   );
 };

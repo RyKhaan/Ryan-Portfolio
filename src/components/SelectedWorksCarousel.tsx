@@ -145,6 +145,11 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
                             className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
                           />
                         )}
+                        {activeProject.isConceptualVisual && (
+                          <div className="absolute bottom-3 left-3 z-10 border border-brand-cream/40 bg-brand-primary/85 backdrop-blur-xs px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-wider text-brand-cream">
+                            Representative Concept Mockup
+                          </div>
+                        )}
                       </div>
                     </motion.article>
                   </AnimatePresence>

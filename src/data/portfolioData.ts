@@ -4,10 +4,15 @@ export interface Project {
   title: string;
   category: string;
   type: string;
+  role?: string;
   description: string;
   longDescription?: string;
   tags: string[];
   image: string;
+  architectureImage?: string;
+  architectureNotes?: string[];
+  isConceptualVisual?: boolean;
+  conceptualDisclaimer?: string;
   video?: string;
   featured?: boolean;
   year: string;
@@ -69,34 +74,27 @@ export const PORTFOLIO_DATA = {
 
   projects: [
     {
-      id: "smart-parking-system",
-      slug: "smart-management-parking-system",
-      title: "Smart Management Parking System",
-      category: "Systems",
-      type: "Smart IoT & Management Platform",
-      description: "Automated parking space allocation, bay telemetry, and real-time occupancy monitoring platform with live facility activity logging.",
-      longDescription: "A comprehensive smart parking management solution designed to optimize urban and commercial parking operations. Features real-time bay occupancy detection across multi-level facilities, dynamic slot allocation, timestamped vehicle entry and exit logging, and an administrative telemetry console to eliminate parking search latency and prevent vehicular congestion.",
-      tags: ["IoT Systems", "Full-Stack Web", "Telemetry", "Database Architecture", "System Design", "Real-Time Tracking"],
-      image: "/assets/smart-parking-system-mockup.webp",
-      featured: true,
-      year: "2025",
-      githubUrl: "https://github.com/ryanlloydgenturo-glitch/smart-parking-system",
-      liveUrl: "#"
-    },
-    {
       id: "synced-n",
       slug: "synced-n-ministry-management",
       title: "Synced N: Ministry Management System",
       category: "Software",
       type: "Android Mobile Application",
+      role: "Project Manager & Systems Designer",
       description: "Centralized Android scheduling, setlist management, and team availability coordination system engineered for church music ministries.",
-      longDescription: "Capstone software engineering project (Project Nexus) at ICCT Colleges developed in collaboration with New Life Christian Church, Pasig. Implements role-based access control (Admin, Worship Leader, Member), rehearsal and service scheduling, automatic conflict detection, team substitution workflows, and a centralized database for song lyrics and chord charts. Engineered using Kotlin and Android Studio with Firebase Authentication, Cloud Firestore, and Firebase Cloud Messaging (FCM).",
+      longDescription: "Capstone software engineering project (Project Nexus) at ICCT Colleges developed in collaboration with New Life Christian Church, Pasig. Implements role-based access control (Admin, Worship Leader, Musician, Vocalist), rehearsal and service scheduling, automatic conflict detection, team substitution workflows, and a centralized database for song lyrics and chord charts. Engineered using Kotlin and Android Studio with Firebase Authentication, Cloud Firestore, and Firebase Cloud Messaging (FCM).",
+      architectureNotes: [
+        "Role-Based Access Control (Admin, Worship Leader, Musician, Vocalist)",
+        "Service & Rehearsal Scheduling Engine with automated team conflict detection",
+        "Centralized Song Repertory with live transposable chord charts & lyrics",
+        "Cloud Firestore event sync with Firebase Cloud Messaging (FCM) alerts",
+        "Figma multi-screen design system spanning 6 core ministry workflows"
+      ],
       tags: ["Kotlin", "Android Studio", "Firebase Firestore", "Firebase Auth", "FCM", "Agile / Scrum", "Figma UI/UX"],
-      image: "/assets/synced-n-mobile-showcase.webp",
+      image: "/assets/synced-n-mobile-mockup.webp",
+      architectureImage: "/assets/synced-n-architecture-overview.webp",
       featured: true,
       year: "2026",
-      githubUrl: "https://github.com/ryanlloydgenturo-glitch/synced-n-mobile",
-      liveUrl: "#"
+      githubUrl: "https://github.com/ryanlloydgenturo-glitch/synced-n-mobile"
     },
     {
       id: "palengke-marketplace",
@@ -104,10 +102,18 @@ export const PORTFOLIO_DATA = {
       title: "Palengke.com: Farm-to-Table E-Marketplace",
       category: "Software",
       type: "E-Commerce Web Platform",
+      role: "Co-Developer & Systems Designer",
       description: "Direct-to-consumer agri-fishery e-marketplace connecting local farmers and fisherfolk with Cainta consumers in partnership with LGU Cainta.",
       longDescription: "An Object-Oriented software engineering capstone developed in partnership with the Local Government Unit (LGU) of Cainta, Rizal. Bridges small-scale agricultural producers directly with local consumers to eliminate multi-tiered middleman markups, guarantee 70% direct producer earnings, and reduce post-harvest waste through pre-orders. Incorporates email verification, order management, cooperative origin tracing, shopping cart architecture, and an LGU administrative audit dashboard.",
-      tags: ["OOP", "Web Architecture", "E-Commerce", "Order Management", "LGU Systems", "UI/UX Design"],
-      image: "/assets/palengke-marketplace-showcase.webp",
+      architectureNotes: [
+        "Direct producer-to-consumer order pipeline eliminating multi-tiered middleman markups",
+        "Session-backed shopping cart with dynamic pricing and item quantity management",
+        "LGU Cainta administrative monitoring & market oversight audit dashboard",
+        "Cooperative origin tracing ensuring direct 70% earnings to local producers"
+      ],
+      tags: ["OOP Architecture", "JavaScript", "Order Management", "LGU Systems", "UI/UX Design", "E-Commerce"],
+      image: "/assets/palengke-marketplace-admin.webp",
+      architectureImage: "/assets/palengke-cart-architecture.webp",
       featured: true,
       year: "2025",
       githubUrl: "https://github.com/ryanlloydgenturo-glitch/palengke-marketplace",
@@ -119,47 +125,47 @@ export const PORTFOLIO_DATA = {
       title: "Smart 3-Ball Incentive Spirometer",
       category: "Embedded Systems",
       type: "Medical Embedded IoT Device",
+      role: "Embedded Systems Lead Developer",
       description: "Microcontroller-based respiratory recovery monitoring system augmenting an incentive spirometer with ToF laser sensing and SpO2 biometrics.",
       longDescription: "An embedded systems medical device designed to improve pulmonary rehabilitation and prevent post-surgical respiratory complications. Integrates an ESP32 microcontroller with three VL53L0X Time-of-Flight (ToF) laser ranging sensors to track real-time spirometry ball elevation, a MAX30102 pulse oximeter for SpO2 oxygen saturation and heart rate monitoring, an I2C multiplexer (TCA9548A), a 1.3-inch OLED interface, and tri-color LED indicators with audible threshold alarms.",
+      architectureNotes: [
+        "Triple VL53L0X Time-of-Flight (ToF) laser ranging sensors tracking individual chamber ball heights",
+        "MAX30102 pulse oximetry sensor logging real-time SpO2 saturation and pulse rate during inhalation",
+        "TCA9548A I2C multiplexer resolving fixed sensor addresses on a single microcontroller I2C bus",
+        "ESP32 dual-core firmware running FreeRTOS tasks for sampling, OLED telemetry, and LED thresholds"
+      ],
       tags: ["Embedded C++", "ESP32", "VL53L0X ToF", "MAX30102", "I2C Multiplexing", "Biometric Sensors", "FreeRTOS"],
-      image: "/assets/smart-spirometer-schematic.webp",
+      image: "/assets/smart-spirometer-prototype.webp",
+      architectureImage: "/assets/smart-spirometer-schematic.webp",
       featured: true,
       year: "2026",
-      githubUrl: "https://github.com/ryanlloydgenturo-glitch/smart-spirometer-esp32",
-      liveUrl: "#"
+      githubUrl: "https://github.com/ryanlloydgenturo-glitch/smart-spirometer-esp32"
     },
     {
-      id: "netscope-analyzer",
-      slug: "netscope-packet-analyzer",
-      title: "NetScope Packet Analyzer",
-      category: "Networking",
-      type: "Systems / Network Tool",
-      description: "High-performance network packet sniffer, telemetry analyzer, and protocol parser engineered in C++ and Rust with real-time stream metrics.",
-      longDescription: "NetScope is a low-overhead, multi-threaded network packet analyzer built for deep packet inspection and network security auditing. Utilizes AF_PACKET raw sockets and custom BPF filters to process high throughput traffic with zero packet drops.",
-      tags: ["C++20", "Rust", "Networking", "TCP/IP", "Wireshark API", "Linux"],
-      image: "/assets/portfolio-snapshot-laptop-1-1.png",
-      video: "/assets/__Laptop_Scene_02.mp4",
-      featured: false,
-      year: "2025",
-      githubUrl: "https://github.com/ryanlloydgenturo-glitch/netscope-packet-analyzer",
-      liveUrl: "#"
-    },
-    {
-      id: "riscv-omnicore",
-      slug: "riscv-omnicore-processor",
-      title: "RISC-V OmniCore Processor",
-      category: "Hardware",
-      type: "Computer Architecture",
-      description: "32-bit pipelined RISC-V (RV32I) processor core designed in SystemVerilog with hazard detection, branch prediction, and FPGA emulation.",
-      longDescription: "A complete 5-stage pipelined processor core featuring full hazard forwarding, data hazard stalling, branch resolution unit, and custom memory-mapped I/O controller verified through ModelSim testbenches and synthesized onto Altera Cyclone IV FPGA.",
-      tags: ["SystemVerilog", "RISC-V", "FPGA", "Computer Architecture", "ModelSim"],
-      image: "/assets/mockup-1600x1131-1.png",
-      featured: false,
-      year: "2024",
-      githubUrl: "https://github.com/ryanlloydgenturo-glitch/riscv-omnicore",
-      liveUrl: "#"
+      id: "smart-parking-system",
+      slug: "smart-management-parking-system",
+      title: "Smart Management Parking System",
+      category: "Embedded Systems",
+      type: "Arduino Embedded Hardware Project",
+      role: "Developer & Hardware Prototyper",
+      description: "Arduino-based parking bay monitoring prototype using ultrasonic distance sensing, dynamic slot availability calculation, and a 16x2 LCD status display.",
+      longDescription: "A hands-on student embedded systems project engineered on the Arduino Uno (ATmega328P) platform. The system implements automated parking space occupancy detection across a scaled multi-bay desktop parking layout using HC-SR04 ultrasonic sensors. Firmware polls distance readings per slot against calibrated empty/occupied thresholds, updates a 16x2 I2C LCD counter at the entry gate, and drives discrete bi-color LEDs per bay for immediate driver navigation. Engineered strictly as a standalone microcontroller hardware prototype without cloud or web dependencies.",
+      architectureNotes: [
+        "Arduino Uno (ATmega328P) microcontroller executing timed ultrasonic trigger and pulse timing routines",
+        "HC-SR04 ultrasonic rangefinding modules mounted per parking bay to gauge vehicle presence",
+        "Threshold-based occupancy logic determining slot state without external computational overhead",
+        "16x2 Liquid Crystal Display over I2C showing live vacant slot count at the parking entry",
+        "Discrete Red/Green LED indicator matrix signaling individual bay availability"
+      ],
+      isConceptualVisual: true,
+      conceptualDisclaimer: "Representative hardware concept visualization. Developed as a student-level physical Arduino embedded prototype using breadboarding, ultrasonic distance sensors, and a character LCD.",
+      tags: ["Arduino Uno", "Embedded C/C++", "HC-SR04 Ultrasonic", "16x2 I2C LCD", "LED Indicators", "Hardware Prototyping"],
+      image: "/assets/arduino-smart-parking-prototype.webp",
+      architectureImage: "/assets/arduino-smart-parking-prototype.webp",
+      featured: true,
+      year: "2025"
     }
-  ],
+  ] as Project[],
 
   services: [
     {
@@ -177,7 +183,7 @@ export const PORTFOLIO_DATA = {
       title: "mobile & cloud systems",
       description: "Native Android application development, cloud database architecture, real-time messaging, and agile engineering leadership across full product lifecycles.",
       skills: ["kotlin & android studio", "cloud firestore", "firebase auth", "fcm push notifications", "agile / scrum leadership", "figma ui/ux"],
-      media: "/assets/synced-n-mobile-showcase.webp",
+      media: "/assets/synced-n-mobile-mockup.webp",
       isVideo: false
     },
     {
@@ -186,7 +192,7 @@ export const PORTFOLIO_DATA = {
       title: "embedded systems & hardware",
       description: "Microcontroller firmware, multi-sensor I2C/SPI telemetry, biometric healthcare instrumentation, digital logic, and hardware-software prototyping.",
       skills: ["esp32 & arduino", "embedded c / c++", "tof laser sensors", "max30102 biometrics", "i2c multiplexing", "circuit prototyping"],
-      media: "/assets/smart-spirometer-schematic.webp",
+      media: "/assets/smart-spirometer-prototype.webp",
       isVideo: false
     }
   ],
