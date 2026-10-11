@@ -50,24 +50,84 @@ export const PORTFOLIO_DATA = {
     roles: [
       "Software Developer",
       "Computer Engineer",
-      "Network & Systems"
+      "Project Lead & Systems"
     ],
-    location: "Sydney / Brisbane, Australia",
-    bio: "I'm a computer engineering student with a deep focus on software development, embedded hardware, networking, and low-level computer systems. Somewhere between wiring breadboard logic gates and writing high-performance code, I fell into the engineering rabbit hole and never looked back.",
+    location: "Cainta, Rizal / Manila, Philippines",
+    bio: "I am a Computer Engineering student at ICCT Colleges specializing in software engineering, embedded systems, full-stack application development, and systems design. From architecting distributed church management platforms and municipal e-marketplaces to engineering IoT microcontrollers and smart parking systems, I bridge software and hardware with discipline and precision.",
     fullBio: [
-      "I am a Computer Engineering student driven by understanding computing systems from physical silicon and logic gates all the way up to distributed software architectures.",
-      "My technical journey bridges the gap between hardware and software. Rather than treating computers as black boxes, I design microarchitectures, write bare-metal firmware, configure robust network topologies, and engineer high-performance software applications.",
-      "Whether developing high-efficiency systems in C++ and Rust, designing pipelined RISC-V processors in Verilog, or architecting home-lab network clusters with automated tunneling, I prioritize precision, reliability, and elegant engineering."
+      "I am a Computer Engineering student at the College of Engineering and Digital Technology, ICCT Colleges Foundation Inc., driven by understanding computing systems from physical silicon and microcontrollers up to modern full-stack application architectures.",
+      "My technical journey bridges hardware, software, and engineering leadership. As Project Manager for Capstone project Synced N (a multi-role mobile management ecosystem for church music ministries), I led a 10-person multi-disciplinary engineering team through Agile sprints, UML system design, and Firebase deployment. In Palengke.com, I co-engineered an Object-Oriented agri-fishery e-marketplace in partnership with the LGU of Cainta to empower local producers.",
+      "In hardware and embedded systems, I design and prototype embedded IoT solutions—including our Smart 3-Ball Digital Spirometer combining ESP32 microcontrollers, VL53L0X Time-of-Flight laser ranging sensors, and MAX30102 pulse oximetry for respiratory rehabilitation, as well as smart telemetry platforms like the Smart Management Parking System."
     ],
     contact: {
-      email: "ryan.genturo@example.com",
-      github: "https://github.com/ryangenturo",
-      linkedin: "https://linkedin.com/in/ryangenturo",
+      email: "genturo.ryanlloyd@gmail.com",
+      github: "https://github.com/ryanlloydgenturo-glitch",
+      linkedin: "https://linkedin.com/in/ryan-lloyd-genturo",
       resume: "#",
     }
   },
 
   projects: [
+    {
+      id: "smart-parking-system",
+      slug: "smart-management-parking-system",
+      title: "Smart Management Parking System",
+      category: "Systems",
+      type: "Smart IoT & Management Platform",
+      description: "Automated parking space allocation, bay telemetry, and real-time occupancy monitoring platform with live facility activity logging.",
+      longDescription: "A comprehensive smart parking management solution designed to optimize urban and commercial parking operations. Features real-time bay occupancy detection across multi-level facilities, dynamic slot allocation, timestamped vehicle entry and exit logging, and an administrative telemetry console to eliminate parking search latency and prevent vehicular congestion.",
+      tags: ["IoT Systems", "Full-Stack Web", "Telemetry", "Database Architecture", "System Design", "Real-Time Tracking"],
+      image: "/assets/smart-parking-system-mockup.webp",
+      featured: true,
+      year: "2025",
+      githubUrl: "https://github.com/ryanlloydgenturo-glitch/smart-parking-system",
+      liveUrl: "#"
+    },
+    {
+      id: "synced-n",
+      slug: "synced-n-ministry-management",
+      title: "Synced N: Ministry Management System",
+      category: "Software",
+      type: "Android Mobile Application",
+      description: "Centralized Android scheduling, setlist management, and team availability coordination system engineered for church music ministries.",
+      longDescription: "Capstone software engineering project (Project Nexus) at ICCT Colleges developed in collaboration with New Life Christian Church, Pasig. Implements role-based access control (Admin, Worship Leader, Member), rehearsal and service scheduling, automatic conflict detection, team substitution workflows, and a centralized database for song lyrics and chord charts. Engineered using Kotlin and Android Studio with Firebase Authentication, Cloud Firestore, and Firebase Cloud Messaging (FCM).",
+      tags: ["Kotlin", "Android Studio", "Firebase Firestore", "Firebase Auth", "FCM", "Agile / Scrum", "Figma UI/UX"],
+      image: "/assets/synced-n-mobile-showcase.webp",
+      featured: true,
+      year: "2026",
+      githubUrl: "https://github.com/ryanlloydgenturo-glitch/synced-n-mobile",
+      liveUrl: "#"
+    },
+    {
+      id: "palengke-marketplace",
+      slug: "palengke-com-farm-to-table",
+      title: "Palengke.com: Farm-to-Table E-Marketplace",
+      category: "Software",
+      type: "E-Commerce Web Platform",
+      description: "Direct-to-consumer agri-fishery e-marketplace connecting local farmers and fisherfolk with Cainta consumers in partnership with LGU Cainta.",
+      longDescription: "An Object-Oriented software engineering capstone developed in partnership with the Local Government Unit (LGU) of Cainta, Rizal. Bridges small-scale agricultural producers directly with local consumers to eliminate multi-tiered middleman markups, guarantee 70% direct producer earnings, and reduce post-harvest waste through pre-orders. Incorporates email verification, order management, cooperative origin tracing, shopping cart architecture, and an LGU administrative audit dashboard.",
+      tags: ["OOP", "Web Architecture", "E-Commerce", "Order Management", "LGU Systems", "UI/UX Design"],
+      image: "/assets/palengke-marketplace-showcase.webp",
+      featured: true,
+      year: "2025",
+      githubUrl: "https://github.com/ryanlloydgenturo-glitch/palengke-marketplace",
+      liveUrl: "https://mnonan827-code.github.io/palengke.com/"
+    },
+    {
+      id: "smart-spirometer",
+      slug: "smart-3ball-incentive-spirometer",
+      title: "Smart 3-Ball Incentive Spirometer",
+      category: "Embedded Systems",
+      type: "Medical Embedded IoT Device",
+      description: "Microcontroller-based respiratory recovery monitoring system augmenting an incentive spirometer with ToF laser sensing and SpO2 biometrics.",
+      longDescription: "An embedded systems medical device designed to improve pulmonary rehabilitation and prevent post-surgical respiratory complications. Integrates an ESP32 microcontroller with three VL53L0X Time-of-Flight (ToF) laser ranging sensors to track real-time spirometry ball elevation, a MAX30102 pulse oximeter for SpO2 oxygen saturation and heart rate monitoring, an I2C multiplexer (TCA9548A), a 1.3-inch OLED interface, and tri-color LED indicators with audible threshold alarms.",
+      tags: ["Embedded C++", "ESP32", "VL53L0X ToF", "MAX30102", "I2C Multiplexing", "Biometric Sensors", "FreeRTOS"],
+      image: "/assets/smart-spirometer-schematic.webp",
+      featured: true,
+      year: "2026",
+      githubUrl: "https://github.com/ryanlloydgenturo-glitch/smart-spirometer-esp32",
+      liveUrl: "#"
+    },
     {
       id: "netscope-analyzer",
       slug: "netscope-packet-analyzer",
@@ -79,9 +139,9 @@ export const PORTFOLIO_DATA = {
       tags: ["C++20", "Rust", "Networking", "TCP/IP", "Wireshark API", "Linux"],
       image: "/assets/portfolio-snapshot-laptop-1-1.png",
       video: "/assets/__Laptop_Scene_02.mp4",
-      featured: true,
+      featured: false,
       year: "2025",
-      githubUrl: "https://github.com/ryangenturo/netscope-packet-analyzer",
+      githubUrl: "https://github.com/ryanlloydgenturo-glitch/netscope-packet-analyzer",
       liveUrl: "#"
     },
     {
@@ -94,85 +154,9 @@ export const PORTFOLIO_DATA = {
       longDescription: "A complete 5-stage pipelined processor core featuring full hazard forwarding, data hazard stalling, branch resolution unit, and custom memory-mapped I/O controller verified through ModelSim testbenches and synthesized onto Altera Cyclone IV FPGA.",
       tags: ["SystemVerilog", "RISC-V", "FPGA", "Computer Architecture", "ModelSim"],
       image: "/assets/mockup-1600x1131-1.png",
-      featured: true,
-      year: "2024",
-      githubUrl: "https://github.com/ryangenturo/riscv-omnicore",
-      liveUrl: "#"
-    },
-    {
-      id: "aerosense-iot",
-      slug: "aerosense-embedded-node",
-      title: "AeroSense Telemetry Node",
-      category: "Embedded Systems",
-      type: "Embedded Hardware & IoT",
-      description: "Ultra-low power multi-sensor environmental telemetry node running FreeRTOS on ESP32 with LoRaWAN wireless transmission.",
-      longDescription: "Custom embedded sensor module measuring particulate air quality, ambient pressure, temperature, and VOC levels. Implements deep-sleep duty cycling for 12+ month battery longevity and transmits encrypted payloads over 868MHz LoRaWAN.",
-      tags: ["Embedded C", "FreeRTOS", "ESP32", "LoRaWAN", "I2C/SPI", "Hardware"],
-      image: "/assets/DSCF0725_converted-1.webp",
-      video: "/assets/Seoul-Hover.mp4",
-      featured: true,
-      year: "2024",
-      githubUrl: "https://github.com/ryangenturo/aerosense-node",
-      liveUrl: "#"
-    },
-    {
-      id: "vanguard-cluster",
-      slug: "vanguard-homelab-cluster",
-      title: "Vanguard Infrastructure Cluster",
-      category: "Networking",
-      type: "Systems & Infrastructure",
-      description: "Bare-metal high-availability home-lab infrastructure cluster with automated WireGuard mesh, redundant DNS, and telemetry monitoring.",
-      longDescription: "Personal multi-node server cluster running Debian Linux, Proxmox VE, and lightweight Kubernetes. Configured with automated BGP routing, VLAN isolation for IoT segregation, centralized Prometheus/Grafana metrics, and automated encrypted backup routines.",
-      tags: ["Linux", "Docker", "WireGuard", "VLAN", "Prometheus", "HomeLab"],
-      image: "/assets/mainscreen-1440x760-1.png",
       featured: false,
       year: "2024",
-      githubUrl: "https://github.com/ryangenturo/vanguard-cluster",
-      liveUrl: "#"
-    },
-    {
-      id: "kernelforge-os",
-      slug: "kernelforge-microkernel",
-      title: "KernelForge Microkernel",
-      category: "Software",
-      type: "Operating Systems",
-      description: "Bare-metal x86 microkernel written from scratch in C and Assembly with paging, interrupt handling, preemptive scheduler, and shell.",
-      longDescription: "A hobby operating system built to study OS internals. Implements protected mode initialization, GDT/IDT management, 2-level page tables, preemptive round-robin scheduler, PS/2 keyboard driver, and an interactive kernel debugging shell.",
-      tags: ["C", "x86 Assembly", "OS Dev", "Paging", "QEMU", "GDB"],
-      image: "/assets/maharani-final.jpeg",
-      featured: false,
-      year: "2024",
-      githubUrl: "https://github.com/ryangenturo/kernelforge-os",
-      liveUrl: "#"
-    },
-    {
-      id: "logiclab-eda",
-      slug: "logiclab-virtual-eda",
-      title: "LogicLab Digital Simulator",
-      category: "Software",
-      type: "Web Application",
-      description: "Interactive browser-based digital circuit designer and logic gate simulator built with TypeScript, Canvas, and WebGL rendering.",
-      longDescription: "A performant circuit simulation workbench allowing students to visually assemble AND/OR/XOR gates, multiplexers, flip-flops, and sequential counters with propagation delay modeling and interactive truth-table verification.",
-      tags: ["TypeScript", "React", "Canvas API", "Digital Logic", "WebGL"],
-      image: "/assets/Still-2024-12-23-190718_1.18.2.png",
-      featured: false,
-      year: "2023",
-      githubUrl: "https://github.com/ryangenturo/logiclab-simulator",
-      liveUrl: "#"
-    },
-    {
-      id: "hypersync-protocol",
-      slug: "hypersync-reliable-udp",
-      title: "HyperSync UDP Transport",
-      category: "Networking",
-      type: "Network Protocol",
-      description: "Reliable, connection-oriented transport protocol built atop UDP featuring selective ACK, congestion control, and packet retransmission.",
-      longDescription: "Engineered to deliver high throughput with minimal overhead compared to standard TCP. Implements sliding window flow control, RTT variance estimation, fast retransmit, and custom checksum verification.",
-      tags: ["Rust", "UDP", "Socket API", "Congestion Control", "Algorithms"],
-      image: "/assets/Still-2024-12-23-190730_1.25.1.png",
-      featured: false,
-      year: "2023",
-      githubUrl: "https://github.com/ryangenturo/hypersync-protocol",
+      githubUrl: "https://github.com/ryanlloydgenturo-glitch/riscv-omnicore",
       liveUrl: "#"
     }
   ],
@@ -181,88 +165,83 @@ export const PORTFOLIO_DATA = {
     {
       id: "software-engineering",
       number: "01",
-      title: "software development",
-      description: "High-performance systems programming, responsive web applications, and robust developer tooling built for scalability and performance.",
-      skills: ["systems programming", "c / c++ & rust", "full stack web", "react & typescript", "linux tooling", "api architecture"],
+      title: "software development & web",
+      description: "Full-stack web applications, Object-Oriented platforms, RESTful APIs, and responsive user interfaces engineered for reliability, scalability, and user-centered utility.",
+      skills: ["full stack web", "react & typescript", "oop architecture", "tailwind css", "vite & node.js", "rest apis"],
       media: "/assets/__Laptop_Scene_02.mp4",
       isVideo: true
     },
     {
-      id: "hardware-embedded",
+      id: "mobile-cloud",
       number: "02",
-      title: "computer hardware & embedded",
-      description: "Digital circuit design, microarchitecture modeling, microcontroller firmware development, and hardware-software co-design.",
-      skills: ["risc-v architecture", "systemverilog / fpga", "embedded c / freertos", "stm32 & esp32", "pcb prototyping", "hardware debugging"],
-      media: "/assets/mainscreen-1440x760-1.png",
+      title: "mobile & cloud systems",
+      description: "Native Android application development, cloud database architecture, real-time messaging, and agile engineering leadership across full product lifecycles.",
+      skills: ["kotlin & android studio", "cloud firestore", "firebase auth", "fcm push notifications", "agile / scrum leadership", "figma ui/ux"],
+      media: "/assets/synced-n-mobile-showcase.webp",
       isVideo: false
     },
     {
-      id: "networking-systems",
+      id: "hardware-embedded",
       number: "03",
-      title: "networking & infrastructure",
-      description: "Network protocol engineering, traffic telemetry, linux systems administration, and secure isolated homelab cluster infrastructure.",
-      skills: ["tcp/ip & raw sockets", "packet telemetry", "linux sysadmin", "wireguard & vpn", "docker & containers", "network security"],
-      media: "/assets/Seoul-Hover.mp4",
-      isVideo: true
+      title: "embedded systems & hardware",
+      description: "Microcontroller firmware, multi-sensor I2C/SPI telemetry, biometric healthcare instrumentation, digital logic, and hardware-software prototyping.",
+      skills: ["esp32 & arduino", "embedded c / c++", "tof laser sensors", "max30102 biometrics", "i2c multiplexing", "circuit prototyping"],
+      media: "/assets/smart-spirometer-schematic.webp",
+      isVideo: false
     }
   ],
 
   toolkit: [
     {
       number: "01",
-      title: "build",
+      title: "software & web",
       icon: "code",
       skills: [
-        "c / c++",
-        "rust",
-        "python",
         "typescript",
         "react",
-        "nextjs",
-        "linux / posix",
-        "git",
-        "docker",
-        "cmake",
-        "gdb / lldb",
-        "sql"
+        "vite",
+        "tailwind css",
+        "kotlin",
+        "java / oop",
+        "c / c++",
+        "python",
+        "sql",
+        "git / github",
+        "rest apis",
+        "linux / posix"
       ]
     },
     {
       number: "02",
-      title: "hardware & embedded",
-      icon: "cpu",
+      title: "mobile, cloud & design",
+      icon: "cloud",
       skills: [
-        "systemverilog",
-        "risc-v architecture",
-        "embedded c",
-        "freertos",
-        "stm32",
-        "esp32",
-        "arduino",
-        "fpga emulation",
-        "i2c / spi / uart",
-        "digital logic",
-        "oscilloscope",
-        "kicad pcb"
+        "android studio",
+        "firebase auth",
+        "cloud firestore",
+        "firebase cloud messaging",
+        "figma ui/ux",
+        "agile / scrum",
+        "system architecture",
+        "uml modeling",
+        "docker"
       ]
     },
     {
       number: "03",
-      title: "networks & systems",
-      icon: "network",
+      title: "hardware & embedded iot",
+      icon: "cpu",
       skills: [
-        "tcp / ip protocol",
-        "wireshark",
-        "raw sockets",
-        "packet routing",
-        "wireguard vpn",
-        "vlan segmentation",
-        "linux kernel",
-        "bash scripting",
-        "dns & dhcp",
-        "network security",
-        "homelab clusters",
-        "prometheus / grafana"
+        "esp32",
+        "arduino",
+        "embedded c / c++",
+        "vl53l0x tof sensors",
+        "max30102 pulse oximeter",
+        "i2c / spi / uart",
+        "tca9548a multiplexing",
+        "oled displays",
+        "circuit schematics",
+        "digital logic"
       ]
     }
   ],
@@ -270,39 +249,48 @@ export const PORTFOLIO_DATA = {
   timeline: [
     {
       period: "2023 — Present",
-      role: "Computer Engineering Student",
-      organization: "University of Technology / QUT",
-      orgUrl: "https://www.qut.edu.au/",
-      location: "Brisbane, Australia",
+      role: "Bachelor of Science in Computer Engineering",
+      organization: "ICCT Colleges Foundation Inc.",
+      orgUrl: "https://icct.edu.ph/",
+      location: "Cainta, Rizal, Philippines",
       type: "Degree Program",
-      description: "Focusing on digital computer systems, microprocessor architecture, operating system design, data structures & algorithms, and communications engineering."
+      description: "Pursuing Bachelor of Science in Computer Engineering (BSCpE) at the College of Engineering and Digital Technology. Specialized in software design, embedded systems, microprocessors, database management, and computer networks."
     },
     {
-      period: "2024 — Present",
-      role: "Systems & Embedded Projects Lead",
-      organization: "Autonomous Robotics & Embedded Lab",
+      period: "2026",
+      role: "Project Manager & Engineering Lead",
+      organization: "Project Nexus — Synced N",
       orgUrl: "#",
-      location: "Brisbane",
-      type: "Academic Team",
-      description: "Architecting sensor telemetry firmware and CAN-bus communication links for microcontroller nodes."
+      location: "Cainta / Pasig, Philippines",
+      type: "Capstone Project",
+      description: "Led a 10-person multi-disciplinary engineering team across 4 Agile development sprints to deliver a production-ready Android church management application for New Life Christian Church, coordinating UML architecture, UI/UX, backend, QA, and deployment."
     },
     {
-      period: "2023 — 2024",
-      role: "Junior Software & Web Developer",
-      organization: "Technology Solutions Practice",
+      period: "2025 — 2026",
+      role: "Lead Developer & System Designer",
+      organization: "Smart Management Parking System",
       orgUrl: "#",
-      location: "Brisbane",
-      type: "Part-time",
-      description: "Developed frontend interfaces and RESTful APIs, optimized database queries, and managed deployment pipelines."
+      location: "Cainta, Rizal",
+      type: "Systems Project",
+      description: "Architected an automated parking bay monitoring and vehicle telemetry management system with real-time occupancy logging, slot allocation algorithms, and an administrative telemetry console."
     },
     {
-      period: "2023",
-      role: "Hardware & Network Lab Assistant",
-      organization: "Engineering Computing Facility",
+      period: "2025",
+      role: "Co-Researcher & Systems Developer",
+      organization: "Palengke.com Agri-Fishery E-Marketplace",
+      orgUrl: "https://mnonan827-code.github.io/palengke.com/",
+      location: "Cainta, Rizal",
+      type: "Academic Capstone",
+      description: "Co-authored and engineered an Object-Oriented farm-to-table e-marketplace platform integrated with the Local Government Unit (LGU) of Cainta to eliminate middleman markups and reduce post-harvest waste."
+    },
+    {
+      period: "2026",
+      role: "Embedded Systems Lead Developer",
+      organization: "Smart 3-Ball Incentive Spirometer Node",
       orgUrl: "#",
-      location: "Brisbane",
-      type: "Academic Assistant",
-      description: "Assisted in configuring managed Cisco switches, testing logic analyzer setups, and troubleshooting breadboard circuits."
+      location: "Cainta, Rizal",
+      type: "Embedded Systems",
+      description: "Engineered an IoT medical spirometry node integrating an ESP32 microcontroller, three VL53L0X Time-of-Flight laser distance sensors, and MAX30102 pulse oximetry for respiratory rehabilitation."
     }
   ]
 };

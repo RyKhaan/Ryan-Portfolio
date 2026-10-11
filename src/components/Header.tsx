@@ -16,10 +16,9 @@ interface CityTime {
 }
 
 const CITIES: CityTime[] = [
-  { city: 'Brisbane', tz: 'Australia/Brisbane', abbr: 'AEST', isPrimary: true },
-  { city: 'Sydney', tz: 'Australia/Sydney', abbr: 'AEST' },
+  { city: 'Manila', tz: 'Asia/Manila', abbr: 'PHT', isPrimary: true },
   { city: 'Tokyo', tz: 'Asia/Tokyo', abbr: 'JST' },
-  { city: 'Berlin', tz: 'Europe/Berlin', abbr: 'CET' },
+  { city: 'Sydney', tz: 'Australia/Sydney', abbr: 'AEST' },
   { city: 'London', tz: 'Europe/London', abbr: 'GMT' },
   { city: 'New York', tz: 'America/New_York', abbr: 'EST' },
   { city: 'Los Angeles', tz: 'America/Los_Angeles', abbr: 'PST' },
