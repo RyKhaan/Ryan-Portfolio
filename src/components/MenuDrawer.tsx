@@ -163,12 +163,20 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({ isOpen, onClose }) => {
                 <RollText text="github" />
               </a>
               <a
-                href={PORTFOLIO_DATA.personal.contact.linkedin}
+                href={PORTFOLIO_DATA.personal.contact.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group group/roll transition-opacity hover:opacity-70"
               >
-                <RollText text="linkedin" />
+                <RollText text="facebook" />
+              </a>
+              <a
+                href={PORTFOLIO_DATA.personal.contact.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group group/roll transition-opacity hover:opacity-70"
+              >
+                <RollText text="instagram" />
               </a>
               <a
                 href={`mailto:${PORTFOLIO_DATA.personal.contact.email}`}

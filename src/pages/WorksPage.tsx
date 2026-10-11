@@ -156,9 +156,21 @@ export const WorksPage: React.FC = () => {
               {/* Text Info Col */}
               <div className="col-span-4 md:col-span-5 p-4 md:p-8 flex flex-col justify-center gap-5 md:gap-6">
                 <div>
-                  <p className="text-[0.65rem] tracking-[0.18em] uppercase opacity-70 mb-2">
-                    {featuredProject.category} · {featuredProject.year}
-                  </p>
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="text-[0.65rem] tracking-[0.18em] uppercase opacity-70">
+                      {featuredProject.category} · {featuredProject.year}
+                    </span>
+                    {featuredProject.status && (
+                      <span className="font-mono text-[0.62rem] uppercase tracking-wider px-2 py-0.5 border border-amber-600/50 bg-amber-500/10 text-brand-primary">
+                        {featuredProject.status}
+                      </span>
+                    )}
+                    {featuredProject.role && (
+                      <span className="font-mono text-[0.62rem] uppercase tracking-wider px-2 py-0.5 border border-brand-primary/30 opacity-80">
+                        {featuredProject.role}
+                      </span>
+                    )}
+                  </div>
                   <h3 className="text-3xl font-semibold tracking-[-0.03em] md:text-5xl mb-4">
                     {featuredProject.title}
                   </h3>
@@ -296,7 +308,7 @@ export const WorksPage: React.FC = () => {
                     </div>
 
                     {/* Card Meta */}
-                    <div className="p-3 md:p-4 mt-auto border-t border-brand-primary/50 flex flex-col gap-1.5">
+                    <div className="p-3 md:p-4 mt-auto border-t border-brand-primary/50 flex flex-col gap-2">
                       <div className="flex items-center justify-between">
                         <h3 className="text-base font-semibold tracking-[-0.02em] md:text-xl">
                           {project.title}
@@ -305,9 +317,21 @@ export const WorksPage: React.FC = () => {
                           &gt;
                         </span>
                       </div>
-                      <p className="text-[0.65rem] tracking-[0.18em] uppercase opacity-70">
-                        {project.category} · {project.year}
-                      </p>
+                      <div className="flex flex-wrap items-center justify-between gap-1">
+                        <span className="text-[0.65rem] tracking-[0.18em] uppercase opacity-70">
+                          {project.category} · {project.year}
+                        </span>
+                        {project.status && (
+                          <span className="font-mono text-[0.58rem] tracking-wider px-1.5 py-0.5 border border-amber-600/40 bg-amber-500/10 uppercase">
+                            {project.status}
+                          </span>
+                        )}
+                      </div>
+                      {project.role && (
+                        <p className="font-mono text-[0.62rem] uppercase tracking-wider opacity-65">
+                          {project.role}
+                        </p>
+                      )}
                     </div>
                   </div>
                 );

@@ -99,30 +99,41 @@ export const ContactPage: React.FC = () => {
                   <p className="text-[0.65rem] tracking-[0.18em] uppercase font-mono opacity-60 mb-3">
                     networks
                   </p>
-                  <ul className="flex flex-col gap-2">
-                    <li>
-                      <a
-                        href={personal.contact.github}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="group/roll inline-flex items-center gap-2 text-base uppercase tracking-wider hover:opacity-75 transition-opacity"
-                      >
-                        <RollText text="github" />
-                        <span>↗</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href={personal.contact.linkedin}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="group/roll inline-flex items-center gap-2 text-base uppercase tracking-wider hover:opacity-75 transition-opacity"
-                      >
-                        <RollText text="linkedin" />
-                        <span>↗</span>
-                      </a>
-                    </li>
-                  </ul>
+                    <ul className="flex flex-col gap-2">
+                      <li>
+                        <a
+                          href={personal.contact.github}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="group/roll inline-flex items-center gap-2 text-base uppercase tracking-wider hover:opacity-75 transition-opacity"
+                        >
+                          <RollText text="github" />
+                          <span>↗</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href={personal.contact.facebook}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="group/roll inline-flex items-center gap-2 text-base uppercase tracking-wider hover:opacity-75 transition-opacity"
+                        >
+                          <RollText text="facebook" />
+                          <span>↗</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href={personal.contact.instagram}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="group/roll inline-flex items-center gap-2 text-base uppercase tracking-wider hover:opacity-75 transition-opacity"
+                        >
+                          <RollText text="instagram" />
+                          <span>↗</span>
+                        </a>
+                      </li>
+                    </ul>
                 </div>
               </div>
 

@@ -70,12 +70,23 @@ export const Footer: React.FC = () => {
                 </li>
                 <li>
                   <a
-                    href={PORTFOLIO_DATA.personal.contact.linkedin}
+                    href={PORTFOLIO_DATA.personal.contact.facebook}
                     target="_blank"
                     rel="noreferrer noopener"
                     className="group group/roll inline-flex items-center gap-3 text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase hover:opacity-75 transition-opacity"
                   >
-                    <RollText text="linkedin" />
+                    <RollText text="facebook" />
+                    <span aria-hidden="true" className="transition-transform group-hover/roll:translate-x-1">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={PORTFOLIO_DATA.personal.contact.instagram}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="group group/roll inline-flex items-center gap-3 text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase hover:opacity-75 transition-opacity"
+                  >
+                    <RollText text="instagram" />
                     <span aria-hidden="true" className="transition-transform group-hover/roll:translate-x-1">↗</span>
                   </a>
                 </li>

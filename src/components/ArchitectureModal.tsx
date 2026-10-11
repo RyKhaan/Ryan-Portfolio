@@ -469,37 +469,13 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
                   </ul>
                 </div>
 
-                {/* Verified Links & Actions */}
-                <div className="border-t border-brand-primary/30 pt-5 mt-auto flex flex-col gap-2.5">
-                  {project.liveUrl && project.liveUrl !== '#' && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between border border-brand-primary bg-brand-primary text-brand-cream px-4 py-2.5 font-mono text-xs uppercase tracking-wider hover:opacity-90 transition-opacity"
-                    >
-                      <span>Live Production Deployment</span>
-                      <span>↗</span>
-                    </a>
-                  )}
-
-                  {project.githubUrl && project.githubUrl !== '#' && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between border border-brand-primary/50 px-4 py-2.5 font-mono text-xs uppercase tracking-wider hover:bg-brand-primary hover:text-brand-cream transition-colors"
-                    >
-                      <span>Source Repository</span>
-                      <span>↗</span>
-                    </a>
-                  )}
-
-                  {!project.liveUrl && !project.githubUrl && (
-                    <div className="p-3 border border-brand-primary/30 bg-brand-primary/5 font-mono text-[0.65rem] uppercase tracking-wider opacity-75 text-center">
-                      Physical Embedded Build · Local Hardware Firmware
-                    </div>
-                  )}
+                {/* Project Documentation & Engineering Status Footer */}
+                <div className="border-t border-brand-primary/30 pt-4 mt-auto">
+                  <div className="p-3 border border-brand-primary/30 bg-brand-primary/5 font-mono text-[0.65rem] uppercase tracking-wider opacity-80 text-center">
+                    {project.status
+                      ? `${project.status} · Academic Project`
+                      : 'Academic & Engineering Project Documentation'}
+                  </div>
                 </div>
               </div>
             )}
