@@ -65,7 +65,7 @@ export const PORTFOLIO_DATA = {
     ],
     contact: {
       email: "ryanlloydgenturo@gmail.com",
-      github: "https://github.com/ryanlloydgenturo-glitch",
+      github: "https://github.com/RyKhaan",
       facebook: "https://www.facebook.com/share/1FFxX1MbXz/",
       instagram: "https://www.instagram.com/yanyan_0964?mdxt=MWF0d3V5aHJlaTJrYg==",
       resume: "#",
