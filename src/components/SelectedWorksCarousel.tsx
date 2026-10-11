@@ -4,7 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { RollText } from './RollText';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
-export const SelectedWorksCarousel: React.FC = () => {
+interface SelectedWorksCarouselProps {
+  sideImage?: string;
+}
+
+export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
+  sideImage = '/assets/Transparent_-Portrait.webp',
+}) => {
   const projects = PORTFOLIO_DATA.projects;
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -178,7 +184,7 @@ export const SelectedWorksCarousel: React.FC = () => {
                 <div className="absolute inset-0 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/side:-translate-x-[4%]">
                   <img
                     alt="Ryan Portrait Silhouette"
-                    src="/assets/Transparent_-Portrait.webp"
+                    src={sideImage}
                     className="h-full w-full object-contain"
                     style={{ objectPosition: 'right bottom' }}
                   />

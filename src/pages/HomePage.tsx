@@ -27,7 +27,7 @@ export const HomePage: React.FC = () => {
               playsInline
               autoPlay
               preload="auto"
-              src="/assets/__Laptop_Scene_02.mp4"
+              src="/assets/Student_laptop_showcase.mp4"
             />
             <div className="pointer-events-none absolute inset-0 bg-brand-primary/10 mix-blend-multiply" />
           </div>
@@ -38,7 +38,7 @@ export const HomePage: React.FC = () => {
               <img
                 alt="Ryan Lloyd Genturo"
                 className="object-cover h-full w-full"
-                src="/assets/DSCF0725_converted-1.webp"
+                src="/assets/image1.jpeg"
               />
               <div className="absolute inset-0 bg-brand-primary/15 mix-blend-multiply pointer-events-none" />
             </div>
@@ -158,7 +158,7 @@ export const HomePage: React.FC = () => {
               <div className="grid grid-cols-4 md:grid-cols-10">
                 <div className="col-span-4 md:col-span-10 aspect-4/3 md:aspect-16/9 bg-brand-dark overflow-hidden relative">
                   <img
-                    src="/assets/mainscreen-1440x760-1.png"
+                    src="/assets/image3.jpeg"
                     alt="Engineering Architecture"
                     className="w-full h-full object-cover"
                   />
@@ -171,13 +171,13 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* SECTION 3: SELECTED WORKS CAROUSEL */}
-      <SelectedWorksCarousel />
+      <SelectedWorksCarousel sideImage="/assets/image4.jpeg" />
 
       {/* SECTION 4: SERVICES */}
       <ServicesSection />
 
       {/* SECTION 5: WANT TO CHAT? */}
-      <ChatCtaSection />
+      <ChatCtaSection image="/assets/image2.jpeg" />
     </div>
   );
 };
