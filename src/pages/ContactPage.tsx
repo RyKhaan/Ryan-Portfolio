@@ -94,7 +94,7 @@ export const ContactPage: React.FC = () => {
               contact.
             </h1>
           </div>
-          <div className="relative col-span-4 md:col-span-4 border-t md:border-t-0 md:border-l border-brand-primary/50 bg-brand-dark aspect-[4/3] md:aspect-auto md:min-h-0 overflow-hidden">
+          <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50 bg-brand-dark min-h-[260px] md:min-h-0 overflow-hidden">
             <img
               src="/assets/contact-hero.webp"
               alt="Ryan Lloyd Genturo"

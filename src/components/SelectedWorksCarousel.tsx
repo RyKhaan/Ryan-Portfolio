@@ -38,14 +38,14 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
   return (
     <section className="border-b border-brand-primary/50 text-brand-primary">
       <div className="grid grid-cols-4 md:grid-cols-12">
-        <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-10 md:pt-40">
+        <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40">
           {/* Section Header */}
           <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
             <div className="col-span-4 md:col-span-10 p-3 md:p-4">
               <p className="mb-2 md:mb-3 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
                 selected
               </p>
-              <h2 className="text-4xl sm:text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+              <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
                 works.
               </h2>
             </div>
@@ -55,9 +55,9 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
           <div className="grid grid-cols-4 md:grid-cols-10">
             {/* Interactive Showcase */}
             <div className="relative z-10 col-span-4 md:col-span-10 lg:col-span-6 lg:border-r border-brand-primary/50 flex flex-col justify-between">
-              <div className="flex flex-col md:flex-row border-b border-brand-primary/50 flex-1">
-                {/* Horizontal thumbnail selector on mobile / Vertical column on desktop */}
-                <div className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible shrink-0 border-b md:border-b-0 md:border-r w-full md:w-36 lg:w-40 border-brand-primary/50">
+              <div className="flex border-b border-brand-primary/50 flex-1">
+                {/* Left Stacked Thumbnails */}
+                <div className="flex w-20 sm:w-28 shrink-0 flex-col border-r md:w-36 lg:w-40 border-brand-primary/50">
                   {projects.map((item, index) => {
                     const isSelected = index === activeIndex;
                     return (
@@ -67,7 +67,7 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
                         onClick={() => setActiveIndex(index)}
                         aria-label={`Show ${item.title}`}
                         aria-current={isSelected}
-                        className={`relative shrink-0 flex-1 min-w-[90px] md:min-w-0 min-h-[60px] md:min-h-[90px] cursor-pointer overflow-hidden border-r last:border-r-0 md:border-r-0 md:border-b md:last:border-b-0 border-brand-primary/50 transition-all duration-300 ${
+                        className={`relative w-full flex-1 min-h-[70px] md:min-h-[90px] cursor-pointer overflow-hidden border-b last:border-b-0 border-brand-primary/50 transition-all duration-300 ${
                           isSelected ? 'opacity-100 ring-2 ring-inset ring-brand-primary' : 'opacity-40 hover:opacity-80'
                         }`}
                       >
@@ -76,9 +76,6 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
                           alt={item.title}
                           className="h-full w-full object-cover"
                         />
-                        <span className="absolute bottom-1 right-1.5 font-mono text-[0.6rem] px-1 py-0.2 bg-brand-primary/85 text-brand-cream md:hidden">
-                          0{index + 1}
-                        </span>
                       </button>
                     );
                   })}
@@ -96,9 +93,9 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
                       className="flex h-full flex-col"
                     >
                       {/* Top Header Card */}
-                      <div className="bg-brand-primary text-brand-cream p-4 sm:p-5 flex flex-col gap-3 sm:gap-4 py-5 md:py-8">
-                        <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                          <h3 className="text-xl sm:text-2xl font-semibold tracking-[-0.03em] md:text-3xl lg:text-4xl">
+                      <div className="bg-brand-primary text-brand-cream p-3 md:p-5 flex flex-col gap-4 py-6 md:py-8">
+                        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                          <h3 className="text-2xl font-semibold tracking-[-0.03em] md:text-3xl lg:text-4xl">
                             {activeProject.title}
                           </h3>
                           <ul className="text-[0.65rem] tracking-[0.18em] uppercase opacity-75 sm:shrink-0 sm:text-right">
@@ -111,7 +108,7 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
                           {activeProject.tags.map((tag) => (
                             <li
                               key={tag}
-                              className="border border-brand-cream/50 px-2 py-0.5 md:px-3 md:py-1 text-[0.62rem] md:text-[0.65rem] tracking-[0.18em] uppercase"
+                              className="border border-brand-cream/50 px-2.5 py-0.5 md:px-3 md:py-1 text-[0.65rem] tracking-[0.18em] uppercase"
                             >
                               {tag}
                             </li>
@@ -121,7 +118,7 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
                         {/* CTA Link to Works */}
                         <Link
                           to="/works"
-                          className="group group/roll mt-2 sm:mt-auto inline-flex items-center gap-2 self-end text-sm sm:text-base md:text-lg leading-[1.3] tracking-[0.06em] uppercase hover:opacity-80 active:scale-[0.97]"
+                          className="group group/roll mt-auto inline-flex items-center gap-2 self-end text-base md:text-lg leading-[1.3] tracking-[0.06em] uppercase hover:opacity-80"
                         >
                           <RollText text="explore project" />
                           <span aria-hidden="true" className="transition-transform group-hover/roll:translate-x-1">
@@ -131,7 +128,7 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
                       </div>
 
                       {/* Large Preview Media Card */}
-                      <div className="relative block w-full flex-1 overflow-hidden min-h-[220px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[480px] bg-brand-dark">
+                      <div className="relative block w-full flex-1 overflow-hidden min-h-[300px] md:min-h-[400px] lg:min-h-[480px] bg-brand-dark">
                         {activeProject.video ? (
                           <video
                             className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
@@ -145,9 +142,7 @@ export const SelectedWorksCarousel: React.FC<SelectedWorksCarouselProps> = ({
                           <img
                             src={activeProject.image}
                             alt={activeProject.title}
-                            className={`h-full w-full ${
-                              activeProject.id === 'synced-n' ? 'object-contain p-4' : 'object-cover'
-                            } transition-transform duration-700 ease-out hover:scale-[1.03]`}
+                            className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
                           />
                         )}
                         {activeProject.isConceptualVisual && (

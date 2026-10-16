@@ -43,7 +43,7 @@ export const WorksPage: React.FC = () => {
           </div>
 
           {/* Right Media Col */}
-          <div className="relative col-span-4 md:col-span-4 border-t md:border-t-0 md:border-l border-brand-primary/50 bg-brand-dark aspect-[4/3] md:aspect-auto md:min-h-0 overflow-hidden">
+          <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50 bg-brand-dark min-h-[300px] md:min-h-0 overflow-hidden">
             <img
               src="/assets/works-portrait-cutout.webp"
               alt="Ryan Lloyd Genturo - Selected Works"
@@ -57,10 +57,10 @@ export const WorksPage: React.FC = () => {
       {/* SECTION 2: FEATURED PROJECT */}
       <section className="text-brand-primary border-b border-brand-primary/50">
         <div className="grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50">
-          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-10 md:pt-40">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40">
             <div className="grid grid-cols-4 md:grid-cols-10">
               <div className="col-span-4 md:col-span-10 p-3 md:p-4">
-                <h2 className="text-4xl sm:text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
                   featured.
                 </h2>
               </div>
@@ -153,10 +153,10 @@ export const WorksPage: React.FC = () => {
       {/* SECTION 3: THE REST (GALLERY & FILTERS) */}
       <section className="text-brand-primary">
         <div className="grid grid-cols-4 md:grid-cols-12 border-b border-brand-primary/50">
-          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-10 md:pt-40">
+          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40">
             <div className="grid grid-cols-4 md:grid-cols-10">
               <div className="col-span-4 md:col-span-10 p-3 md:p-4">
-                <h2 className="text-4xl sm:text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
                   the rest.
                 </h2>
               </div>

@@ -22,7 +22,7 @@ export const AboutPage: React.FC = () => {
           </div>
 
           {/* Right Media Col */}
-          <div className="relative col-span-4 md:col-span-4 border-t md:border-t-0 md:border-l border-brand-primary/50 bg-brand-dark aspect-[4/3] md:aspect-auto md:min-h-0 overflow-hidden">
+          <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50 bg-brand-dark min-h-[300px] md:min-h-0 overflow-hidden">
             <img
               src="/assets/about-hero.webp"
               alt="Ryan Lloyd Genturo"
@@ -117,7 +117,7 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <figure className="flex min-h-0 flex-1 flex-col pt-3 pb-1">
-              <div className="relative aspect-[3/3.2] sm:aspect-4/5 w-full overflow-hidden border border-brand-primary/50 md:aspect-auto md:min-h-0 md:flex-1 bg-brand-dark">
+              <div className="relative aspect-4/5 w-full overflow-hidden border border-brand-primary/50 md:aspect-auto md:min-h-0 md:flex-1 bg-brand-dark">
                 <img
                   alt="Ryan Lloyd Genturo - Educational Background"
                   src="/assets/about-background.webp"
