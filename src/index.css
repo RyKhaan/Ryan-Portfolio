@@ -7,7 +7,7 @@
 
     /* Light Mode Tokens */
     --color-brand-primary: #6a0c06;
-    --color-brand-cream: #b2c7ab;
+    --color-brand-cream: #f8ebe8;
     --color-brand-dark: #1a1512;
     --color-brand-accent: #6a0c06;
   }
@@ -16,8 +16,8 @@
 :root[data-theme="dark"] {
   --color-brand-cream: #6a0c06;
   --color-brand-light: #6a0c06;
-  --color-brand-primary: #b2c7ab;
-  --color-brand-accent: #b2c7ab;
+  --color-brand-primary: #f8ebe8;
+  --color-brand-accent: #f8ebe8;
   color-scheme: dark;
 }
 
