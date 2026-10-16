@@ -7,6 +7,8 @@ export const ContactPage: React.FC = () => {
   const { personal } = PORTFOLIO_DATA;
   const [copied, setCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [copiedTransmission, setCopiedTransmission] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,9 +22,63 @@ export const ContactPage: React.FC = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const getMailtoUrl = () => {
+    const subject = encodeURIComponent(
+      formData.subject ? `[genturo. Portfolio] ${formData.subject}` : 'New Engineering Inquiry'
+    );
+    const body = encodeURIComponent(
+      `Sender: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}\n\n---\nSent via genturo. message dispatch`
+    );
+    return `mailto:${personal.contact.email}?subject=${subject}&body=${body}`;
+  };
+
+  const handleCopyTransmission = () => {
+    const text = `To: ${personal.contact.email}\nFrom: ${formData.name} <${formData.email}>\nSubject: ${formData.subject}\n\n${formData.message}`;
+    navigator.clipboard.writeText(text);
+    setCopiedTransmission(true);
+    setTimeout(() => setCopiedTransmission(false), 2000);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+
+    const mailtoUrl = getMailtoUrl();
+
+    try {
+      // 1. Attempt FormSubmit background dispatch
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4500);
+
+      await fetch(`https://formsubmit.co/ajax/${personal.contact.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: `[genturo. Portfolio] ${formData.subject || 'Direct Dispatch'}`,
+          message: formData.message,
+          _template: 'box',
+        }),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+    } catch (err) {
+      console.warn('FormSubmit background dispatch bypassed, falling back to mail client:', err);
+    } finally {
+      setIsSubmitting(false);
+      setFormSubmitted(true);
+      // Trigger user's mail client as direct transmission channel
+      try {
+        window.location.href = mailtoUrl;
+      } catch (e) {
+        console.warn('Could not launch mailto automatically:', e);
+      }
+    }
   };
 
   return (
@@ -150,21 +206,61 @@ export const ContactPage: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="border border-brand-primary/50 p-6 md:p-8 bg-brand-primary/5 text-center"
+                    className="border border-brand-primary/50 p-6 md:p-8 bg-brand-primary/5 text-left"
                   >
-                    <p className="text-2xl font-bold mb-3">Message Dispatched</p>
-                    <p className="text-base leading-relaxed opacity-80 mb-6">
-                      Thank you for reaching out, {formData.name || 'there'}. I will get back to you promptly.
+                    <div className="flex items-center gap-3 font-mono text-xs opacity-75 mb-3">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+                      </span>
+                      <span>// DISPATCH STATUS: PROCESSED</span>
+                    </div>
+
+                    <h4 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
+                      Transmission Dispatched
+                    </h4>
+                    <p className="text-base leading-relaxed opacity-85 mb-6">
+                      Thank you for reaching out, <span className="font-semibold">{formData.name || 'there'}</span>. Your message has been queued for dispatch to <span className="font-mono text-sm underline">{personal.contact.email}</span>.
                     </p>
+
+                    {/* Transmission Metadata Log */}
+                    <div className="border border-brand-primary/30 bg-brand-primary/[0.03] p-4 font-mono text-xs mb-6 space-y-1.5 opacity-90 overflow-x-auto">
+                      <div className="flex justify-between border-b border-brand-primary/20 pb-1 text-[0.65rem] tracking-wider uppercase opacity-60">
+                        <span>Transmission Manifest</span>
+                        <span>Direct Channel</span>
+                      </div>
+                      <p><span className="opacity-50">RECIPIENT:</span> {personal.contact.email}</p>
+                      <p><span className="opacity-50">SENDER:   </span> {formData.name} &lt;{formData.email}&gt;</p>
+                      <p><span className="opacity-50">SUBJECT:  </span> {formData.subject || '(None provided)'}</p>
+                    </div>
+
+                    {/* Dual Action Options */}
+                    <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                      <a
+                        href={getMailtoUrl()}
+                        className="inline-flex items-center justify-center gap-2 border border-brand-primary bg-brand-primary text-brand-cream px-4 py-2.5 font-mono text-xs uppercase tracking-wider hover:opacity-90 transition-opacity text-center cursor-pointer"
+                      >
+                        <span>Open in Email Client</span>
+                        <span>↗</span>
+                      </a>
+                      <button
+                        type="button"
+                        onClick={handleCopyTransmission}
+                        className="inline-flex items-center justify-center gap-2 border border-brand-primary/50 px-4 py-2.5 font-mono text-xs uppercase tracking-wider hover:bg-brand-primary hover:text-brand-cream transition-colors text-center cursor-pointer"
+                      >
+                        <span>{copiedTransmission ? 'Transmission Copied!' : 'Copy Formatted Text'}</span>
+                      </button>
+                    </div>
+
                     <button
                       type="button"
                       onClick={() => {
                         setFormSubmitted(false);
                         setFormData({ name: '', email: '', subject: '', message: '' });
                       }}
-                      className="border border-brand-primary/50 px-4 py-2 font-mono text-xs uppercase hover:bg-brand-primary hover:text-brand-cream transition-colors cursor-pointer"
+                      className="font-mono text-xs uppercase opacity-70 hover:opacity-100 underline transition-opacity cursor-pointer"
                     >
-                      Send another message
+                      ← Send another transmission
                     </button>
                   </motion.div>
                 ) : (
@@ -225,20 +321,43 @@ export const ContactPage: React.FC = () => {
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-6 py-3.5 text-lg leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream cursor-pointer self-start"
-                    >
-                      <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:-translate-y-[200%]">
-                        transmit message
-                      </span>
-                      <span
-                        className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:translate-y-0"
-                        aria-hidden="true"
+                    <div className="flex flex-col gap-4">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-6 py-3.5 text-lg leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream cursor-pointer self-start disabled:opacity-50 disabled:cursor-wait"
                       >
-                        transmit message
-                      </span>
-                    </button>
+                        {isSubmitting ? (
+                          <span className="flex items-center gap-2 font-mono text-sm tracking-widest">
+                            <span className="inline-block h-2 w-2 rounded-full bg-brand-primary animate-ping" />
+                            TRANSMITTING...
+                          </span>
+                        ) : (
+                          <>
+                            <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:-translate-y-[200%]">
+                              transmit message
+                            </span>
+                            <span
+                              className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:translate-y-0"
+                              aria-hidden="true"
+                            >
+                              transmit message
+                            </span>
+                          </>
+                        )}
+                      </button>
+
+                      {/* Direct Fallback Link */}
+                      <div className="pt-3 border-t border-brand-primary/20 text-xs font-mono opacity-70 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <span>// DIRECT DISPATCH CHANNEL</span>
+                        <a
+                          href={`mailto:${personal.contact.email}?subject=Direct%20Inquiry%20via%20Portfolio`}
+                          className="underline hover:opacity-100 transition-opacity"
+                        >
+                          Send directly via {personal.contact.email} ↗
+                        </a>
+                      </div>
+                    </div>
                   </form>
                 )}
               </div>
