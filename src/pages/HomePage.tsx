@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { SelectedWorksCarousel } from '../components/SelectedWorksCarousel';
 import { ServicesSection } from '../components/ServicesSection';
 import { ChatCtaSection } from '../components/ChatCtaSection';
+import { EngineeringTelemetry } from '../components/EngineeringTelemetry';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 export const HomePage: React.FC = () => {
@@ -99,7 +100,13 @@ export const HomePage: React.FC = () => {
       {/* SECTION 2: THE ENGINEER / BIO */}
       <section className="text-brand-primary">
         <div className="grid grid-cols-4 md:grid-cols-12">
-          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40 pb-0">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+            className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40 pb-0"
+          >
             {/* Header */}
             <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
               <div className="col-span-4 md:col-span-10 p-3 md:p-4">
@@ -121,7 +128,7 @@ export const HomePage: React.FC = () => {
                   </p>
                   <Link
                     to="/about"
-                    className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-4 py-2 text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream"
+                    className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-4 py-2 text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream active:scale-[0.97]"
                   >
                     <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:-translate-y-[200%]">
                       learn more
@@ -135,38 +142,25 @@ export const HomePage: React.FC = () => {
                   </Link>
                 </div>
 
-                {/* Side Graphic / Terminal Aesthetic */}
-                <div className="col-span-4 md:col-span-6 min-h-[220px] md:min-h-[300px] bg-brand-primary/5 flex flex-col justify-center p-6 md:p-12 font-mono">
-                  <div className="border border-brand-primary/30 p-4 bg-brand-cream/60">
-                    <p className="text-xs text-brand-primary/60 pb-2 border-b border-brand-primary/20">
-                      // SYSTEM METRICS & ARCHITECTURE
-                    </p>
-                    <p className="text-sm text-brand-primary pt-3">
-                      Target: ESP32 / Arduino / Android / Web
-                    </p>
-                    <p className="text-xs text-brand-primary/80 pt-1">
-                      Domains: Kotlin, TypeScript, Embedded C/C++, FreeRTOS, ToF Sensors
-                    </p>
-                    <p className="text-xs text-brand-primary/70 pt-1">
-                      Status: Active Computer Engineering & Systems Development
-                    </p>
-                  </div>
+                {/* Side Graphic / Interactive Live Telemetry Console */}
+                <div className="col-span-4 md:col-span-6 min-h-[220px] md:min-h-[300px] bg-brand-primary/5 flex flex-col justify-center p-3 sm:p-5 md:p-6 font-mono">
+                  <EngineeringTelemetry />
                 </div>
               </div>
 
               {/* Banner Media Block */}
               <div className="grid grid-cols-4 md:grid-cols-10">
-                <div className="col-span-4 md:col-span-10 aspect-4/3 md:aspect-16/9 bg-brand-dark overflow-hidden relative">
+                <div className="col-span-4 md:col-span-10 aspect-4/3 md:aspect-16/9 bg-brand-dark overflow-hidden relative group">
                   <img
                     src="/assets/image3.png"
                     alt="Engineering Architecture"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-brand-primary/15 mix-blend-multiply pointer-events-none" />
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

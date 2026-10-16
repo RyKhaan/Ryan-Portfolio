@@ -69,8 +69,15 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-10">
-              {toolkit.map((cat) => (
-                <div key={cat.number} className="border-b border-brand-primary/50 pb-8 last:border-b-0">
+              {toolkit.map((cat, idx) => (
+                <motion.div
+                  key={cat.number}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.4, delay: idx * 0.06 }}
+                  className="border-b border-brand-primary/50 pb-8 last:border-b-0"
+                >
                   <h4 className="flex items-center gap-2 text-lg md:text-xl font-bold tracking-[-0.02em] mb-4">
                     <span className="font-mono text-sm opacity-60 tabular-nums">
                       {cat.number}
@@ -88,7 +95,7 @@ export const AboutPage: React.FC = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -99,9 +106,9 @@ export const AboutPage: React.FC = () => {
       <section className="border-b border-brand-primary/50 text-brand-primary">
         <div className="grid grid-cols-4 md:grid-cols-12 items-start">
           {/* Sticky Aside */}
-          <aside className="col-span-4 md:col-span-5 p-3 md:p-6 flex flex-col gap-6 md:sticky md:top-16 md:h-[calc(100svh-4rem)] md:py-12 md:order-2 justify-between">
+          <aside className="col-span-4 md:col-span-5 p-3 md:p-6 flex flex-col gap-4 md:sticky md:top-16 md:h-[calc(100svh-4rem)] md:py-8 md:order-2 justify-between">
             <div>
-              <p className="mb-3 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+              <p className="mb-2 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
                 experience & education
               </p>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl leading-[0.9] font-bold tracking-[-0.05em]">
@@ -109,14 +116,14 @@ export const AboutPage: React.FC = () => {
               </h2>
             </div>
 
-            <figure className="flex min-h-0 flex-1 flex-col pt-6">
+            <figure className="flex min-h-0 flex-1 flex-col pt-3 pb-1">
               <div className="relative aspect-4/5 w-full overflow-hidden border border-brand-primary/50 md:aspect-auto md:min-h-0 md:flex-1 bg-brand-dark">
                 <img
                   alt="Ryan Lloyd Genturo - Educational Background"
                   src="/assets/about-background.webp"
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-[center_top]"
                 />
-                <div className="absolute inset-0 bg-brand-primary/15 mix-blend-multiply pointer-events-none" />
+                <div className="absolute inset-0 bg-brand-primary/10 mix-blend-multiply pointer-events-none" />
               </div>
             </figure>
           </aside>
@@ -126,8 +133,12 @@ export const AboutPage: React.FC = () => {
             <div className="p-3 md:p-6 py-12 md:py-16">
               <ol className="flex flex-col">
                 {timeline.map((item, idx) => (
-                  <li
+                  <motion.li
                     key={idx}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.45, delay: idx * 0.04 }}
                     className="border-b border-brand-primary/50 py-6 first:pt-0 last:border-b-0"
                   >
                     <div className="grid gap-2 md:grid-cols-[10rem_1fr] md:gap-x-6">
@@ -161,7 +172,7 @@ export const AboutPage: React.FC = () => {
                         )}
                       </div>
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ol>
             </div>

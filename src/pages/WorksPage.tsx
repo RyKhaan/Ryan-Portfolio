@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { ChatCtaSection } from '../components/ChatCtaSection';
 import { RollText } from '../components/RollText';
 import { ArchitectureModal } from '../components/ArchitectureModal';
@@ -69,7 +70,13 @@ export const WorksPage: React.FC = () => {
 
         {/* Featured Showcase Card */}
         <div className="grid grid-cols-4 md:grid-cols-12">
-          <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+            className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50"
+          >
             <div className="grid grid-cols-4 md:grid-cols-10">
               {/* Media Col */}
               <div className="col-span-4 aspect-[4/3] border-b md:col-span-5 md:aspect-auto md:min-h-[40rem] md:border-b-0 md:border-r border-brand-primary/50 bg-brand-dark overflow-hidden flex items-center justify-center relative">
@@ -130,7 +137,7 @@ export const WorksPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveModalProject(featuredProject)}
-                  className="group group/roll mt-4 inline-flex items-center gap-2 self-start text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase cursor-pointer"
+                  className="group group/roll mt-4 inline-flex items-center gap-2 self-start text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase cursor-pointer active:scale-[0.97]"
                 >
                   <RollText text="view architecture" />
                   <span aria-hidden="true" className="transition-transform group-hover/roll:translate-x-1">
@@ -139,7 +146,7 @@ export const WorksPage: React.FC = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -218,10 +225,14 @@ export const WorksPage: React.FC = () => {
                 // 2 columns or 3 columns in the 10-col grid (col-span-5 on md)
                 const isRightCol = index % 2 === 1;
                 return (
-                  <div
+                  <motion.div
                     key={project.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.45, delay: (index % 2) * 0.08 }}
                     onClick={() => setActiveModalProject(project)}
-                    className={`group/item col-span-4 md:col-span-5 flex flex-col border-b border-brand-primary/50 cursor-pointer ${
+                    className={`group/item col-span-4 md:col-span-5 flex flex-col border-b border-brand-primary/50 cursor-pointer transition-colors hover:bg-brand-primary/5 ${
                       !isRightCol ? 'md:border-r' : ''
                     }`}
                   >
@@ -268,7 +279,7 @@ export const WorksPage: React.FC = () => {
                         </p>
                       )}
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
 

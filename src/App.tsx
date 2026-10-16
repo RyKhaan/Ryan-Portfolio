@@ -4,6 +4,7 @@ import { BackgroundGrid } from './components/BackgroundGrid';
 import { Header } from './components/Header';
 import { MenuDrawer } from './components/MenuDrawer';
 import { IntroOverlay } from './components/IntroOverlay';
+import { ScrollProgressBar } from './components/ScrollProgressBar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
@@ -65,6 +66,8 @@ const AppContent: React.FC = () => {
         isDark={isDark}
         toggleTheme={toggleTheme}
       />
+      {/* Kinetic Top Scroll Progress Bar */}
+      <ScrollProgressBar />
       {/* Navigation Drawer */}
       <MenuDrawer isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
