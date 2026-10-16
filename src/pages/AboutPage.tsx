@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChatCtaSection } from '../components/ChatCtaSection';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { asset } from '../utils/asset';
 
 export const AboutPage: React.FC = () => {
   const { personal, toolkit, timeline } = PORTFOLIO_DATA;
@@ -24,7 +25,7 @@ export const AboutPage: React.FC = () => {
           {/* Right Media Col */}
           <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50 bg-brand-dark min-h-[300px] md:min-h-0 overflow-hidden">
             <img
-              src="/assets/about-hero.webp"
+              src={asset('/assets/about-hero.webp')}
               alt="Ryan Lloyd Genturo"
               className="h-full w-full object-cover"
             />
@@ -120,7 +121,7 @@ export const AboutPage: React.FC = () => {
               <div className="relative aspect-4/5 w-full overflow-hidden border border-brand-primary/50 md:aspect-auto md:min-h-0 md:flex-1 bg-brand-dark">
                 <img
                   alt="Ryan Lloyd Genturo - Educational Background"
-                  src="/assets/about-background.webp"
+                  src={asset('/assets/about-background.webp')}
                   className="h-full w-full object-cover object-[center_top]"
                 />
                 <div className="absolute inset-0 bg-brand-primary/10 mix-blend-multiply pointer-events-none" />

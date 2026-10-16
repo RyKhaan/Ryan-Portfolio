@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RollText } from './RollText';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { asset } from '../utils/asset';
 
 interface MenuDrawerProps {
   isOpen: boolean;
@@ -22,28 +23,28 @@ const NAV_ITEMS: NavItem[] = [
     id: 'home',
     url: '/',
     label: 'home',
-    media: '/assets/menu-home.mp4',
+    media: asset('/assets/menu-home.mp4'),
     isVideo: true,
   },
   {
     id: 'works',
     url: '/works',
     label: 'works',
-    media: '/assets/menu-works.webp',
+    media: asset('/assets/menu-works.webp'),
     isVideo: false,
   },
   {
     id: 'about',
     url: '/about',
     label: 'about',
-    media: '/assets/menu-about.webp',
+    media: asset('/assets/menu-about.webp'),
     isVideo: false,
   },
   {
     id: 'contact',
     url: '/contact',
     label: 'contact',
-    media: '/assets/menu-contact.webp',
+    media: asset('/assets/menu-contact.webp'),
     isVideo: false,
   },
 ];

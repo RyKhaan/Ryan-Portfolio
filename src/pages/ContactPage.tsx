@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { RollText } from '../components/RollText';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { asset } from '../utils/asset';
 
 export const ContactPage: React.FC = () => {
   const { personal } = PORTFOLIO_DATA;
@@ -96,7 +97,7 @@ export const ContactPage: React.FC = () => {
           </div>
           <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50 bg-brand-dark min-h-[260px] md:min-h-0 overflow-hidden">
             <img
-              src="/assets/contact-hero.webp"
+              src={asset('/assets/contact-hero.webp')}
               alt="Ryan Lloyd Genturo"
               className="h-full w-full object-cover"
             />

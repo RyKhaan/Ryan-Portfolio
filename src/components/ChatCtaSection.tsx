@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { asset } from '../utils/asset';
 
 interface ChatCtaProps {
   headingSubtitle?: string;
@@ -62,7 +63,7 @@ export const ChatCtaSection: React.FC<ChatCtaProps> = ({
                 <div className="relative h-full w-full">
                   <img
                     alt="Engineering Workspace"
-                    src={image}
+                    src={asset(image)}
                     className="object-cover h-full w-full"
                   />
                   <div className="absolute inset-0 bg-brand-primary/10 mix-blend-multiply pointer-events-none" />

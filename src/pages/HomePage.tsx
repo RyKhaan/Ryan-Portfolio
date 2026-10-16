@@ -6,6 +6,7 @@ import { ServicesSection } from '../components/ServicesSection';
 import { ChatCtaSection } from '../components/ChatCtaSection';
 import { EngineeringTelemetry } from '../components/EngineeringTelemetry';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { asset } from '../utils/asset';
 
 export const HomePage: React.FC = () => {
   const { personal } = PORTFOLIO_DATA;
@@ -28,7 +29,7 @@ export const HomePage: React.FC = () => {
               playsInline
               autoPlay
               preload="auto"
-              src="/assets/Laptop_displaying_student_portfolio_1080p.mp4"
+              src={asset('/assets/Laptop_displaying_student_portfolio_1080p.mp4')}
             />
             <div className="pointer-events-none absolute inset-0 bg-brand-primary/10 mix-blend-multiply" />
           </div>
@@ -39,7 +40,7 @@ export const HomePage: React.FC = () => {
               <img
                 alt="Ryan Lloyd Genturo"
                 className="object-cover h-full w-full"
-                src="/assets/image1.png"
+                src={asset('/assets/image1.png')}
               />
               <div className="absolute inset-0 bg-brand-primary/15 mix-blend-multiply pointer-events-none" />
             </div>
@@ -86,7 +87,7 @@ export const HomePage: React.FC = () => {
           {/* Col 11-12: Custom Emblem Mark */}
           <div className="col-span-1 md:col-span-2 md:border-l border-brand-primary/50 p-3 md:p-4 flex items-center justify-center">
             <motion.img
-              src="/genturo-branding-primary.svg"
+              src={asset('/genturo-branding-primary.svg')}
               alt="genturo-branding"
               className="h-20 w-auto md:h-32 text-brand-primary opacity-90"
               initial={{ opacity: 0, y: 16 }}
@@ -152,7 +153,7 @@ export const HomePage: React.FC = () => {
               <div className="grid grid-cols-4 md:grid-cols-10">
                 <div className="col-span-4 md:col-span-10 aspect-4/3 md:aspect-16/9 bg-brand-dark overflow-hidden relative group">
                   <img
-                    src="/assets/image3.png"
+                    src={asset('/assets/image3.png')}
                     alt="Engineering Architecture"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
@@ -165,13 +166,13 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* SECTION 3: SELECTED WORKS CAROUSEL */}
-      <SelectedWorksCarousel sideImage="/assets/image4.png" />
+      <SelectedWorksCarousel sideImage={asset('/assets/image4.png')} />
 
       {/* SECTION 4: SERVICES */}
       <ServicesSection />
 
       {/* SECTION 5: WANT TO CHAT? */}
-      <ChatCtaSection image="/assets/want-to-chat.webp" />
+      <ChatCtaSection image={asset('/assets/want-to-chat.webp')} />
     </div>
   );
 };

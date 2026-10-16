@@ -469,6 +469,28 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
                   </ul>
                 </div>
 
+                {/* External GitHub Repository Link */}
+                {project.githubUrl && (
+                  <div className="border-t border-brand-primary/30 pt-4">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex w-full items-center justify-between border border-brand-primary bg-brand-primary px-4 py-3 text-xs font-mono uppercase tracking-wider text-brand-cream transition-all hover:bg-brand-primary/90 active:scale-[0.98]"
+                    >
+                      <span className="font-bold flex items-center gap-2">
+                        <span>View GitHub Architecture</span>
+                        <span className="text-[0.65rem] opacity-70 font-normal">
+                          ({project.slug === 'synced-n-ministry-management' ? 'Project Nexus' : 'Source'})
+                        </span>
+                      </span>
+                      <span aria-hidden="true" className="text-sm transition-transform group-hover:translate-x-0.5">
+                        ↗
+                      </span>
+                    </a>
+                  </div>
+                )}
+
                 {/* Project Documentation & Engineering Status Footer */}
                 <div className="border-t border-brand-primary/30 pt-4 mt-auto">
                   <div className="p-3 border border-brand-primary/30 bg-brand-primary/5 font-mono text-[0.65rem] uppercase tracking-wider opacity-80 text-center">

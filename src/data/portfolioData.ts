@@ -1,3 +1,5 @@
+import { asset } from '../utils/asset';
+
 export interface Project {
   id: string;
   slug: string;
@@ -17,6 +19,7 @@ export interface Project {
   video?: string;
   featured?: boolean;
   year: string;
+  githubUrl?: string;
 }
 
 export interface Service {
@@ -68,7 +71,7 @@ export const PORTFOLIO_DATA = {
       github: "https://github.com/RyKhaan",
       facebook: "https://www.facebook.com/share/1FFxX1MbXz/",
       instagram: "https://www.instagram.com/yanyan_0964?mdxt=MWF0d3V5aHJlaTJrYg==",
-      resume: "#",
+      resume: asset('/assets/Ryan_Lloyd_Genturo_Resume.pdf'),
     }
   },
 
@@ -81,18 +84,20 @@ export const PORTFOLIO_DATA = {
       type: "Android Mobile Application (Software Design Project)",
       role: "Project Lead & Systems Design",
       status: "Currently in Development",
+      githubUrl: "https://github.com/RyKhaan/Synced-N",
       description: "Centralized Android scheduling, setlist management, and team availability coordination system currently in development for church music ministries.",
-      longDescription: "A collaborative software design project (Project Nexus) at ICCT Colleges currently in active development for New Life Christian Church, Pasig. Implements role-based access workflows (Admin, Worship Leader, Musician, Vocalist), rehearsal and service scheduling, automatic conflict detection, team substitution workflows, and a centralized database for song lyrics and chord charts. Engineered using Kotlin and Android Studio with Firebase Authentication, Cloud Firestore, and Firebase Cloud Messaging (FCM).",
+      longDescription: "A collaborative software design project (Project Nexus) at ICCT Colleges currently in active development for New Life Christian Church, Pasig. Implements role-based access workflows (Admin, Worship Leader, Musician, Vocalist), rehearsal and service scheduling, automatic conflict detection, team substitution workflows, and a centralized database for song lyrics and chord charts. Engineered using Kotlin and Android Studio with Firebase Authentication, Cloud Firestore, and Firebase Cloud Messaging (FCM), managed through a disciplined GitHub branching and collaboration workflow.",
       architectureNotes: [
-        "Role-Based Access Control (Admin, Worship Leader, Musician, Vocalist)",
-        "Service & Rehearsal Scheduling Engine with automated team conflict detection",
-        "Centralized Song Repertory with live transposable chord charts & lyrics",
-        "Cloud Firestore event sync with Firebase Cloud Messaging (FCM) alerts",
-        "Figma multi-screen design system spanning 6 core ministry workflows"
+        "GitHub Architecture & Collaborative Lifecycle: Multi-branch workflow (main, develop, feature/bugfix branches) with semantic commits and peer-reviewed pull requests",
+        "Role-Based Access Control (Admin, Worship Leader, Musician, Vocalist) across dynamic UI fragments",
+        "Service & Rehearsal Scheduling Engine with automated team availability and conflict detection",
+        "Centralized Song Repertory with live transposable chord charts & lyrics management",
+        "Cloud Firestore real-time synchronization with Firebase Cloud Messaging (FCM) push alerts",
+        "Figma design system spanning 6 core ministry workflows aligned with Android Studio layout assets"
       ],
-      tags: ["Kotlin", "Android Studio", "Firebase Firestore", "Firebase Auth", "FCM", "Systems Design", "Figma UI/UX"],
-      image: "/assets/synced-n-mobile-mockup.webp",
-      architectureImage: "/assets/synced-n-architecture-overview.webp",
+      tags: ["GitHub Architecture", "Kotlin", "Android Studio", "Firebase Firestore", "Firebase Auth", "FCM", "Systems Design", "Figma UI/UX"],
+      image: asset('/assets/synced-n-mobile-mockup.webp'),
+      architectureImage: asset('/assets/synced-n-architecture-overview.webp'),
       featured: true,
       year: "2026"
     },
@@ -112,8 +117,8 @@ export const PORTFOLIO_DATA = {
         "Cooperative origin tracing ensuring direct 70% earnings to local producers"
       ],
       tags: ["Relational Databases", "JavaScript", "Order Management", "LGU Systems", "UI/UX Design", "E-Commerce"],
-      image: "/assets/palengke-marketplace-admin.webp",
-      architectureImage: "/assets/palengke-cart-architecture.webp",
+      image: asset('/assets/palengke-marketplace-admin.webp'),
+      architectureImage: asset('/assets/palengke-cart-architecture.webp'),
       featured: true,
       year: "2025"
     },
@@ -133,8 +138,8 @@ export const PORTFOLIO_DATA = {
         "ESP32 dual-core firmware running FreeRTOS tasks for sampling, OLED telemetry, and LED thresholds"
       ],
       tags: ["Embedded C++", "ESP32", "VL53L0X ToF", "MAX30102", "I2C Multiplexing", "Biometric Sensors", "Hardware Prototyping"],
-      image: "/assets/smart-spirometer-prototype.webp",
-      architectureImage: "/assets/smart-spirometer-schematic.webp",
+      image: asset('/assets/smart-spirometer-prototype.webp'),
+      architectureImage: asset('/assets/smart-spirometer-schematic.webp'),
       featured: true,
       year: "2026"
     },
@@ -157,8 +162,8 @@ export const PORTFOLIO_DATA = {
       isConceptualVisual: true,
       conceptualDisclaimer: "Representative hardware concept visualization. Developed as a student-level physical Arduino embedded prototype using breadboarding, ultrasonic distance sensors, and a character LCD.",
       tags: ["Arduino Uno", "Embedded C/C++", "HC-SR04 Ultrasonic", "16x2 I2C LCD", "LED Indicators", "Hardware Prototyping"],
-      image: "/assets/arduino-smart-parking-prototype.webp",
-      architectureImage: "/assets/arduino-smart-parking-prototype.webp",
+      image: asset('/assets/arduino-smart-parking-prototype.webp'),
+      architectureImage: asset('/assets/arduino-smart-parking-prototype.webp'),
       featured: true,
       year: "2025"
     }
@@ -171,7 +176,7 @@ export const PORTFOLIO_DATA = {
       title: "software development & web",
       description: "Full-stack web applications, Object-Oriented platforms, RESTful APIs, and responsive user interfaces engineered for reliability, scalability, and user-centered utility.",
       skills: ["full stack web", "react & typescript", "oop architecture", "tailwind css", "vite & node.js", "rest apis"],
-      media: "/assets/service-software-web.webp",
+      media: asset('/assets/service-software-web.webp'),
       isVideo: false
     },
     {
@@ -180,7 +185,7 @@ export const PORTFOLIO_DATA = {
       title: "mobile & cloud systems",
       description: "Native Android application development, cloud database architecture, real-time messaging, and agile engineering leadership across full product lifecycles.",
       skills: ["kotlin & android studio", "cloud firestore", "firebase auth", "fcm push notifications", "agile / scrum leadership", "figma ui/ux"],
-      media: "/assets/service-mobile-cloud.webp",
+      media: asset('/assets/service-mobile-cloud.webp'),
       isVideo: false
     },
     {
@@ -189,7 +194,7 @@ export const PORTFOLIO_DATA = {
       title: "embedded systems & hardware",
       description: "Microcontroller firmware, multi-sensor I2C/SPI telemetry, biometric healthcare instrumentation, digital logic, and hardware-software prototyping.",
       skills: ["esp32 & arduino", "embedded c / c++", "tof laser sensors", "max30102 biometrics", "i2c multiplexing", "circuit prototyping"],
-      media: "/assets/smart-spirometer-prototype.webp",
+      media: asset('/assets/smart-spirometer-prototype.webp'),
       isVideo: false
     }
   ],

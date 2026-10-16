@@ -4,6 +4,7 @@ import { ChatCtaSection } from '../components/ChatCtaSection';
 import { RollText } from '../components/RollText';
 import { ArchitectureModal } from '../components/ArchitectureModal';
 import { PORTFOLIO_DATA, Project } from '../data/portfolioData';
+import { asset } from '../utils/asset';
 
 export const WorksPage: React.FC = () => {
   const { projects } = PORTFOLIO_DATA;
@@ -45,7 +46,7 @@ export const WorksPage: React.FC = () => {
           {/* Right Media Col */}
           <div className="relative col-span-4 md:col-span-4 border-l border-brand-primary/50 bg-brand-dark min-h-[300px] md:min-h-0 overflow-hidden">
             <img
-              src="/assets/works-portrait-cutout.webp"
+              src={asset('/assets/works-portrait-cutout.webp')}
               alt="Ryan Lloyd Genturo - Selected Works"
               className="h-full w-full object-cover object-top"
             />
@@ -133,17 +134,33 @@ export const WorksPage: React.FC = () => {
                   ))}
                 </ul>
 
-                {/* Action button */}
-                <button
-                  type="button"
-                  onClick={() => setActiveModalProject(featuredProject)}
-                  className="group group/roll mt-4 inline-flex items-center gap-2 self-start text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase cursor-pointer active:scale-[0.97]"
-                >
-                  <RollText text="view architecture" />
-                  <span aria-hidden="true" className="transition-transform group-hover/roll:translate-x-1">
-                    &gt;
-                  </span>
-                </button>
+                {/* Action button & GitHub link */}
+                <div className="flex flex-wrap items-center gap-4 mt-4">
+                  <button
+                    type="button"
+                    onClick={() => setActiveModalProject(featuredProject)}
+                    className="group group/roll inline-flex items-center gap-2 self-start text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase cursor-pointer active:scale-[0.97]"
+                  >
+                    <RollText text="view architecture" />
+                    <span aria-hidden="true" className="transition-transform group-hover/roll:translate-x-1">
+                      &gt;
+                    </span>
+                  </button>
+
+                  {featuredProject.githubUrl && (
+                    <a
+                      href={featuredProject.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-2 border border-brand-primary/50 px-3 py-1.5 font-mono text-xs uppercase tracking-wider hover:bg-brand-primary hover:text-brand-cream transition-colors"
+                    >
+                      <span>GitHub Repo</span>
+                      <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+                        ↗
+                      </span>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </motion.div>
