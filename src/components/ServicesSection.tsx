@@ -19,14 +19,14 @@ export const ServicesSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.45 }}
-          className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40"
+          className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-10 md:pt-40"
         >
           <div className="grid grid-cols-4 md:grid-cols-10">
             <div className="col-span-4 md:col-span-10 p-3 md:p-4">
               <p className="mb-2 md:mb-3 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
                 my
               </p>
-              <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+              <h2 className="text-4xl sm:text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
                 services.
               </h2>
             </div>

@@ -21,14 +21,14 @@ export const ChatCtaSection: React.FC<ChatCtaProps> = ({
   return (
     <section className="text-brand-primary">
       <div className="grid grid-cols-4 md:grid-cols-12">
-        <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40 pb-0">
+        <div className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-10 md:pt-40 pb-0">
           {/* Header */}
           <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
             <div className="col-span-4 md:col-span-10 p-3 md:p-4">
-              <p className="mb-3 md:mb-4 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+              <p className="mb-2 md:mb-4 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
                 {headingSubtitle}
               </p>
-              <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+              <h2 className="text-4xl sm:text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
                 {headingTitle}
               </h2>
             </div>
@@ -37,13 +37,13 @@ export const ChatCtaSection: React.FC<ChatCtaProps> = ({
           {/* Content Split */}
           <div className="relative">
             <div className="grid grid-cols-4 md:grid-cols-10">
-              <div className="col-span-4 md:col-span-4 border-r border-brand-primary/50 p-3 md:p-4 flex flex-col items-start gap-8 py-14 md:py-20 justify-center">
-                <p className="max-w-[46ch] text-lg md:text-xl leading-relaxed">
+              <div className="col-span-4 md:col-span-4 border-b md:border-b-0 md:border-r border-brand-primary/50 p-4 sm:p-6 md:p-4 flex flex-col items-start gap-6 md:gap-8 py-8 md:py-20 justify-center">
+                <p className="max-w-[46ch] text-base sm:text-lg md:text-xl leading-relaxed">
                   {bodyText}
                 </p>
                 <Link
                   to={ctaLink}
-                  className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-4 py-2 text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream"
+                  className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-4 py-2.5 text-base md:text-xl leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream active:scale-[0.97]"
                 >
                   <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:-translate-y-[200%]">
                     {ctaText}
@@ -58,7 +58,7 @@ export const ChatCtaSection: React.FC<ChatCtaProps> = ({
               </div>
 
               {/* Right Media Image */}
-              <div className="col-span-4 md:col-span-6 min-h-[360px] md:min-h-[560px] bg-brand-dark overflow-hidden">
+              <div className="col-span-4 md:col-span-6 min-h-[260px] sm:min-h-[360px] md:min-h-[560px] bg-brand-dark overflow-hidden">
                 <div className="relative h-full w-full">
                   <img
                     alt="Engineering Workspace"

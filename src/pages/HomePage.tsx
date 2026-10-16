@@ -15,11 +15,11 @@ export const HomePage: React.FC = () => {
       {/* SECTION 1: HERO */}
       <section className="flex flex-col border-b md:min-h-[calc(100svh-4rem)] border-brand-primary/50">
         {/* Media Split Row */}
-        <div className="grid grid-cols-4 md:grid-cols-12 md:min-h-[40svh] md:flex-1 border-b border-brand-primary/50">
+        <div className="order-2 md:order-1 grid grid-cols-4 md:grid-cols-12 md:min-h-[40svh] md:flex-1 border-b md:border-b border-brand-primary/50">
           {/* Main Video / Showcase Card */}
           <div
             id="hero-media-card"
-            className="relative col-span-4 md:col-span-8 aspect-[4/3] md:aspect-auto md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-brand-primary/50 bg-brand-dark"
+            className="relative col-span-4 md:col-span-8 aspect-[16/10] sm:aspect-[4/3] md:aspect-auto md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-brand-primary/50 bg-brand-dark"
           >
             <video
               className="absolute inset-0 h-full w-full object-cover"
@@ -34,11 +34,11 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Secondary Portrait / Hardware Media Card */}
-          <div className="relative col-span-4 md:col-span-4 aspect-[3/4] md:aspect-auto md:h-full overflow-hidden bg-brand-dark">
+          <div className="relative col-span-4 md:col-span-4 aspect-[16/10] sm:aspect-[3/4] md:aspect-auto md:h-full overflow-hidden bg-brand-dark">
             <div className="absolute inset-0">
               <img
                 alt="Ryan Lloyd Genturo"
-                className="object-cover h-full w-full"
+                className="object-cover h-full w-full object-[center_25%]"
                 src="/assets/image1.png"
               />
               <div className="absolute inset-0 bg-brand-primary/15 mix-blend-multiply pointer-events-none" />
@@ -46,13 +46,13 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Hero Branding & Roles Bottom Row */}
-        <div className="grid grid-cols-4 md:grid-cols-12 items-stretch">
+        {/* Hero Branding & Roles Row */}
+        <div className="order-1 md:order-2 grid grid-cols-4 md:grid-cols-12 items-stretch border-b md:border-b-0 border-brand-primary/50">
           {/* Col 1-7: Huge Typography Title */}
-          <div className="col-span-4 flex items-end px-3 py-3 md:col-span-7 md:px-4 md:py-4 overflow-hidden">
+          <div className="col-span-4 flex items-end px-3 py-3 md:col-span-7 md:px-4 md:py-4 overflow-hidden border-b md:border-b-0 border-brand-primary/50">
             <h1
               id="hero-heading"
-              className="text-[clamp(2.75rem,14.6vw,13.2rem)] leading-[0.8] font-bold tracking-[-0.09em] text-brand-primary select-none whitespace-nowrap"
+              className="text-[clamp(3rem,14.6vw,13.2rem)] leading-[0.82] font-bold tracking-[-0.09em] text-brand-primary select-none whitespace-nowrap"
               aria-label="genturo."
             >
               {'genturo.'.split('').map((char, index) => (
@@ -70,7 +70,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Col 8-10: Professional Roles */}
-          <ul className="col-span-3 md:col-span-3 md:border-l border-brand-primary/50 p-3 md:p-4 flex flex-col justify-end gap-1 text-base leading-[1.15] font-medium tracking-[-0.02em] md:text-xl lg:text-2xl text-brand-primary">
+          <ul className="col-span-3 md:col-span-3 border-r md:border-r-0 md:border-l border-brand-primary/50 p-3 md:p-4 flex flex-col justify-end gap-1 text-xs sm:text-base leading-[1.15] font-medium tracking-[-0.02em] md:text-xl lg:text-2xl text-brand-primary">
             {personal.roles.map((role, idx) => (
               <motion.li
                 key={role}
@@ -84,11 +84,11 @@ export const HomePage: React.FC = () => {
           </ul>
 
           {/* Col 11-12: Custom Emblem Mark */}
-          <div className="col-span-1 md:col-span-2 md:border-l border-brand-primary/50 p-3 md:p-4 flex items-center justify-center">
+          <div className="col-span-1 md:col-span-2 md:border-l border-brand-primary/50 p-2 sm:p-3 md:p-4 flex items-center justify-center">
             <motion.img
               src="/genturo-branding-primary.svg"
               alt="genturo-branding"
-              className="h-20 w-auto md:h-32 text-brand-primary opacity-90"
+              className="h-12 w-auto sm:h-20 md:h-32 text-brand-primary opacity-90"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 0.9, y: 0 }}
               transition={{ delay: 0.5, duration: 0.45 }}
@@ -105,15 +105,15 @@ export const HomePage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-            className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-16 md:pt-40 pb-0"
+            className="col-span-4 md:col-span-10 md:col-start-2 border-x border-brand-primary/50 pt-10 md:pt-40 pb-0"
           >
             {/* Header */}
             <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
               <div className="col-span-4 md:col-span-10 p-3 md:p-4">
-                <p className="mb-3 md:mb-4 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
+                <p className="mb-2 md:mb-4 text-[0.7rem] font-bold tracking-[0.18em] uppercase opacity-75">
                   the
                 </p>
-                <h2 className="text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+                <h2 className="text-4xl sm:text-5xl leading-[0.85] font-bold tracking-[-0.06em] md:text-7xl lg:text-8xl">
                   engineer.
                 </h2>
               </div>
@@ -122,13 +122,13 @@ export const HomePage: React.FC = () => {
             {/* Split Bio & Media Container */}
             <div className="relative">
               <div className="grid grid-cols-4 md:grid-cols-10 border-b border-brand-primary/50">
-                <div className="col-span-4 md:col-span-4 border-r border-brand-primary/50 p-3 md:p-4 flex flex-col items-start gap-8 py-14 md:py-20 justify-center">
-                  <p className="max-w-[46ch] text-lg md:text-xl leading-relaxed">
+                <div className="col-span-4 md:col-span-4 border-b md:border-b-0 md:border-r border-brand-primary/50 p-4 sm:p-6 md:p-4 flex flex-col items-start gap-6 md:gap-8 py-8 md:py-20 justify-center">
+                  <p className="max-w-[46ch] text-base sm:text-lg md:text-xl leading-relaxed">
                     {personal.bio}
                   </p>
                   <Link
                     to="/about"
-                    className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-4 py-2 text-lg md:text-xl leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream active:scale-[0.97]"
+                    className="group/cta relative inline-block overflow-hidden border border-brand-primary/50 px-4 py-2.5 text-base md:text-xl leading-[1.3] tracking-[0.06em] uppercase transition-colors hover:bg-brand-primary hover:text-brand-cream active:scale-[0.97]"
                   >
                     <span className="block transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/cta:-translate-y-[200%]">
                       learn more
@@ -150,11 +150,11 @@ export const HomePage: React.FC = () => {
 
               {/* Banner Media Block */}
               <div className="grid grid-cols-4 md:grid-cols-10">
-                <div className="col-span-4 md:col-span-10 aspect-4/3 md:aspect-16/9 bg-brand-dark overflow-hidden relative group">
+                <div className="col-span-4 md:col-span-10 aspect-[16/10] md:aspect-16/9 bg-brand-dark overflow-hidden relative group">
                   <img
                     src="/assets/image3.png"
                     alt="Engineering Architecture"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-brand-primary/15 mix-blend-multiply pointer-events-none" />
                 </div>
