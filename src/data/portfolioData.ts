@@ -72,6 +72,7 @@ export const PORTFOLIO_DATA = {
       facebook: "https://www.facebook.com/share/1FFxX1MbXz/",
       instagram: "https://www.instagram.com/yanyan_0964?mdxt=MWF0d3V5aHJlaTJrYg==",
       resume: asset('/assets/Ryan_Lloyd_Genturo_Resume.pdf'),
+      livePortfolio: "https://rykhaan.github.io/Ryan-Portfolio/",
     }
   },
 

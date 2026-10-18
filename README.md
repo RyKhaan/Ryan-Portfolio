@@ -1,5 +1,8 @@
 # Ryan Lloyd Genturo — Personal Portfolio
 
+[![Ryan-Portfolio](https://img.shields.io/badge/Ryan--Portfolio-rykhaan.github.io%2FRyan--Portfolio-6a0c06?style=for-the-badge&logo=google-chrome&logoColor=white)](https://rykhaan.github.io/Ryan-Portfolio/)
+[![GitHub](https://img.shields.io/badge/GitHub-RyKhaan-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RyKhaan)
+
 High-fidelity creative developer portfolio for **Ryan Lloyd Genturo** (Computer Engineering Student, Software Developer, Systems & Networks), reverse-engineered and inspired by the design system, editorial typography, and micro-interactions of `mijobello.com`.
 
 ## 🚀 Key Features & Architectural Recreations
